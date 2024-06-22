@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool _isABalloon = false;
 	private int _Balloon = 0;
 	private string _lastBalloon = "red";
+	private float _time;
 	private Dictionary<string, int> _BalloonsDictionary = new Dictionary<string, int>
 	{
 		{ "Red", 0 },
@@ -345,14 +346,34 @@ public class PlayerMovement : MonoBehaviour
 
 		if ( _BalloonsDictionaryActivation["Red"] == true)
 		{
-			RB.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
+			if (_time < 8)
+			{
+				_time += Time.deltaTime;
+				RB.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
+			}
+			else
+			{
+				_BalloonsDictionaryActivation["Purple"] = false;
+			}
 		}
 		else if ( _BalloonsDictionaryActivation["Purple"] == true)
 		{
-			if (transform.localScale.x == 1f)
-			RB.AddForce(400 * Vector2.right, ForceMode2D.Force);
+			if (_time < 3)
+			{
+				_time += Time.deltaTime;
+				if (transform.localScale.x == 1f)
+				{
+					RB.AddForce(200 * Vector2.right, ForceMode2D.Force);
+				}
+				else
+				{
+					RB.AddForce(-200 * Vector2.right, ForceMode2D.Force);
+				}
+			}
 			else
-			RB.AddForce(-400 * Vector2.right, ForceMode2D.Force);
+			{
+				_BalloonsDictionaryActivation["Purple"] = false;
+			}
 		}
 
 		#endregion
@@ -656,6 +677,7 @@ public class PlayerMovement : MonoBehaviour
 			_BalloonsDictionary[_ballonRef] -= 1;
 			_BalloonsDictionaryActivation[_ballonRef] = true;
 			_lastBalloon = _ballonRef;
+			_time = 0;
 			Debug.Log("-1 " + _ballonRef + "balloon");
 		}
 		else
