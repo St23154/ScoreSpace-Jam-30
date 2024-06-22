@@ -10,12 +10,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerData Data;
+	public UnityEvent interactAction;
 
 	#region COMPONENTS
     public Rigidbody2D RB { get; private set; }
@@ -100,6 +102,9 @@ public class PlayerMovement : MonoBehaviour
 	#endregion
 
 	private bool isPlayerOnTop = false;
+	[SerializeField] Interact interact;
+	[SerializeField] CollisionDetector collisionDetector;
+
     
 
     private void Awake()
@@ -111,16 +116,22 @@ public class PlayerMovement : MonoBehaviour
 	{
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
+		Debug.Log(interact.isInRange);
 	} 
-	private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("moveable_object"))
-        {
-            Debug.Log("ghjkl");
-			isPlayerOnTop = true;
-        }
-    }
-	
+	public void Check_Balloon(){
+		if(collisionDetector.isFloating){
+			interactAction.Invoke();
+		}
+		if (_BalloonsDictionary["Green"] > 0){
+			_BalloonsDictionary["Green"] -= 1;
+			Debug.Log("ballonvert");
+			interactAction.Invoke();
+			}
+
+
+			
+
+	}
 	private void Update()
 	{
         #region TIMERS
@@ -136,19 +147,8 @@ public class PlayerMovement : MonoBehaviour
 		#region INPUT HANDLER
 		_moveInput.x = Input.GetAxisRaw("Horizontal");
 		_moveInput.y = Input.GetAxisRaw("Vertical");
-
-        if(isPlayerOnTop && Input.GetKeyDown(KeyCode.E)){
-			if (_BalloonsDictionary["Green"] > 0){
-				_BalloonsDictionary["Green"] -= 1;
-				ballonVert = true;
-			}
-			else{
-				ballonVert = false;
-				Debug.Log("pas de ballon vert");
-			}
-
-			
-		}
+		
+        
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 
@@ -734,6 +734,7 @@ public class PlayerMovement : MonoBehaviour
 		else if (other.CompareTag("GreenBalloon"))
         {
             _BalloonsDictionary["Green"] += 1;
+			ballonVert = true;
 			Debug.Log("there is " + _BalloonsDictionary["Green"] + "Green balloons");
 			Destroy(collidedObject);
         }
