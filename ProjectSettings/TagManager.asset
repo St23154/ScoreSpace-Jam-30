@@ -11,6 +11,7 @@ TagManager:
   - Balloon1
   - moveable_object
   - ground
+  - Trampoline
   layers:
   - Default
   - TransparentFX
