@@ -7,6 +7,8 @@
  */
 
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -50,6 +52,25 @@ public class PlayerMovement : MonoBehaviour
 	private bool _isDashAttacking;
 
 	#endregion
+
+	//Balloon
+	private bool _isABalloon = false;
+	private int _Balloon = 0;
+	private string _lastBalloon = "red";
+	private Dictionary<string, int> _BalloonsDictionary = new Dictionary<string, int>
+	{
+		{ "Red", 0 },
+		{ "Blue", 0 },
+		{ "Green", 0 },
+		{ "Purple", 0 }
+	};
+	private Dictionary<string, bool> _BalloonsDictionaryActivation = new Dictionary<string, bool>
+	{
+		{ "Red", false },
+		{ "Blue", false },
+		{ "Green", false },
+		{ "Purple", false }
+	};
 
 	#region INPUT PARAMETERS
 	private Vector2 _moveInput;
@@ -113,6 +134,26 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.J))
 		{
 			OnJumpUpInput();
+		}
+
+		if (Input.GetKeyUp(KeyCode.Alpha1))
+		{
+			PutBalloon("Red");
+		}
+
+		if (Input.GetKeyUp(KeyCode.Alpha2))
+		{
+			PutBalloon("Blue");
+		}
+
+		if (Input.GetKeyUp(KeyCode.Alpha3))
+		{
+			PutBalloon("Green");
+		}
+
+		if (Input.GetKeyUp(KeyCode.Alpha4))
+		{
+			PutBalloon("Purple");
 		}
 
 		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
@@ -239,8 +280,14 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else if (RB.velocity.y < 0)
 			{
-				//Higher gravity if falling
-				SetGravityScale(0.2f);
+				if (_BalloonsDictionaryActivation["Blue"] == true)
+				{
+					SetGravityScale(0.2f);
+				}
+				else
+				{
+					SetGravityScale(Data.gravityScale * Data.fallGravityMult);
+				}
 				//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
 				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
 			}
@@ -266,6 +313,7 @@ public class PlayerMovement : MonoBehaviour
 			SetGravityScale(0);
 		}
 		#endregion
+
     }
 
     private void FixedUpdate()
@@ -286,6 +334,16 @@ public class PlayerMovement : MonoBehaviour
 		//Handle Slide
 		if (IsSliding)
 			Slide();
+
+		#region BALLOON FORCE
+
+		if ( _BalloonsDictionaryActivation["Red"] == true)
+		{
+			RB.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
+		}
+
+		#endregion
+
     }
 
     #region INPUT CALLBACKS
@@ -509,8 +567,10 @@ public class PlayerMovement : MonoBehaviour
 		//So, we clamp the movement here to prevent any over corrections (these aren't noticeable in the Run)
 		//The force applied can't be greater than the (negative) speedDifference * by how many times a second FixedUpdate() is called. For more info research how force are applied to rigidbodies.
 		movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif)  * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
-
-		RB.AddForce(movement * Vector2.up);
+		if (!_BalloonsDictionaryActivation["Red"])
+		{
+			RB.AddForce(movement * Vector2.up);
+		}
 	}
     #endregion
 
@@ -573,6 +633,60 @@ public class PlayerMovement : MonoBehaviour
 		Gizmos.DrawWireCube(_backWallCheckPoint.position, _wallCheckSize);
 	}
     #endregion
+
+	#region BALLON PUT
+	private void PutBalloon(string _ballonRef)
+	{
+		if (_BalloonsDictionary[_ballonRef] >= 1)
+		{
+			_BalloonsDictionaryActivation[_lastBalloon] = false;
+			_BalloonsDictionary[_ballonRef] -= 1;
+			_BalloonsDictionaryActivation[_ballonRef] = true;
+			_lastBalloon = _ballonRef;
+			Debug.Log("-1 " + _ballonRef + "balloon");
+		}
+		else
+		{
+			Debug.Log("no " + _ballonRef + " balloon");
+		}
+	}
+	#endregion
+
+	#region BALLOON CHECK
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		GameObject collidedObject = other.gameObject;
+
+		if (other.CompareTag("RedBalloon"))
+        {
+			Destroy(collidedObject);
+            _BalloonsDictionary["Red"] += 1;
+			Debug.Log("there is " + _BalloonsDictionary["Red"] + "Red balloons");
+        }
+
+		else if (other.CompareTag("BlueBalloon"))
+        {
+            _BalloonsDictionary["Blue"] += 1;
+			Debug.Log("there is " + _BalloonsDictionary["Blue"] + "Blue balloons");
+			Destroy(collidedObject);
+        }
+
+		else if (other.CompareTag("GreenBalloon"))
+        {
+            _BalloonsDictionary["Green"] += 1;
+			Debug.Log("there is " + _BalloonsDictionary["Green"] + "Green balloons");
+			Destroy(collidedObject);
+        }
+
+		else if (other.CompareTag("PurpleBalloon"))
+        {
+            _BalloonsDictionary["Purple"] += 1;
+			Debug.Log("there is " + _BalloonsDictionary["Purple"] + "Purple balloons");
+			Destroy(collidedObject);
+        }
+	}
+	#endregion
+
 }
 
 // created by Dawnosaur :D
