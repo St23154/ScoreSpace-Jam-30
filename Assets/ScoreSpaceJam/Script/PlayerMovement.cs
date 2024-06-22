@@ -273,10 +273,13 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else if (RB.velocity.y < 0 && _moveInput.y < 0)
 			{
+				if (!_BalloonsDictionaryActivation["Red"])
+				{
 					//Much higher gravity if holding down
 					SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
 					//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
 					RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
+				}
 			}
 			else if (RB.velocity.y < 0)
 			{
