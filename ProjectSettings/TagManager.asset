@@ -9,6 +9,7 @@ TagManager:
   - GreenBalloon
   - PurpleBalloon
   - Balloon1
+  - moveable_object
   layers:
   - Default
   - TransparentFX

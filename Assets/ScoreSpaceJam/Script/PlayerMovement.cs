@@ -73,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
 		{ "Purple", false }
 	};
 
+	private bool isOnFloatingSquare = false;
+
 	#region INPUT PARAMETERS
 	private Vector2 _moveInput;
 
