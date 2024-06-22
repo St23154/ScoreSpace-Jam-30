@@ -237,6 +237,13 @@ public class PlayerMovement : MonoBehaviour
 				//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
 				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
 			}
+			else if (RB.velocity.y < 0)
+			{
+				//Higher gravity if falling
+				SetGravityScale(0.2f);
+				//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
+				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
+			}
 			else if (_isJumpCut)
 			{
 				//Higher gravity if jump button released
@@ -246,13 +253,6 @@ public class PlayerMovement : MonoBehaviour
 			else if ((IsJumping || IsWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
 			{
 				SetGravityScale(Data.gravityScale * Data.jumpHangGravityMult);
-			}
-			else if (RB.velocity.y < 0)
-			{
-				//Higher gravity if falling
-				SetGravityScale(0.2f);
-				//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
-				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
 			}
 			else
 			{
