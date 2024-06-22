@@ -279,7 +279,8 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else if (RB.velocity.y < 0)
 			{
-				if (_isABalloon)
+				Debug.Log(_BalloonsDictionaryActivation["Blue"]);
+				if (_BalloonsDictionaryActivation["Blue"] == true)
 				{
 					SetGravityScale(0.2f);
 				}
@@ -629,8 +630,8 @@ public class PlayerMovement : MonoBehaviour
 			_BalloonsDictionaryActivation[_lastBalloon] = false;
 			_BalloonsDictionary[_ballonRef] -= 1;
 			_BalloonsDictionaryActivation[_ballonRef] = true;
-			_isABalloon = true;
 			_lastBalloon = _ballonRef;
+			Debug.Log("-1 " + _ballonRef + "balloon");
 		}
 		else
 		{
