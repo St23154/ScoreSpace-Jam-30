@@ -273,23 +273,26 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else if (RB.velocity.y < 0 && _moveInput.y < 0)
 			{
-				//Much higher gravity if holding down
-				SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
-				//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
-				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
+					//Much higher gravity if holding down
+					SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
+					//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
+					RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
 			}
 			else if (RB.velocity.y < 0)
 			{
-				if (_BalloonsDictionaryActivation["Blue"] == true)
+				if (!_BalloonsDictionaryActivation["Red"])
 				{
-					SetGravityScale(0.2f);
+					if (_BalloonsDictionaryActivation["Blue"] == true)
+					{
+						SetGravityScale(0.2f);
+					}
+					else
+					{
+						SetGravityScale(Data.gravityScale * Data.fallGravityMult);
+					}
+					//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
+					RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
 				}
-				else
-				{
-					SetGravityScale(Data.gravityScale * Data.fallGravityMult);
-				}
-				//Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
-				RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
 			}
 			else if (_isJumpCut)
 			{
