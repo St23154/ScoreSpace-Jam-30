@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 		{ "Green", false },
 		{ "Purple", false }
 	};
-
+	public bool ballonVert = false;
 	private bool isOnFloatingSquare = false;
 
 	#region INPUT PARAMETERS
@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 	#endregion
 
 	private bool isPlayerOnTop = false;
-    private GameObject player;
+    
 
     private void Awake()
 	{
@@ -112,13 +112,12 @@ public class PlayerMovement : MonoBehaviour
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
 	} 
-	void OnCollisionEnter2D(Collision2D collision)
+	private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("moveable_object"))
+        if (collision.gameObject.CompareTag("moveable_object"))
         {
-            isPlayerOnTop = true;
-            player = collision.gameObject;
-            Debug.Log("Touched");
+            Debug.Log("ghjkl");
+			isPlayerOnTop = true;
         }
     }
 	
@@ -138,6 +137,18 @@ public class PlayerMovement : MonoBehaviour
 		_moveInput.x = Input.GetAxisRaw("Horizontal");
 		_moveInput.y = Input.GetAxisRaw("Vertical");
 
+        if(isPlayerOnTop && Input.GetKeyDown(KeyCode.E)){
+			if (_BalloonsDictionary["Green"] > 0){
+				_BalloonsDictionary["Green"] -= 1;
+				ballonVert = true;
+			}
+			else{
+				ballonVert = false;
+				Debug.Log("pas de ballon vert");
+			}
+
+			
+		}
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 

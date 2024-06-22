@@ -8,6 +8,8 @@ public class CollisionDetector : MonoBehaviour
     private bool isFloating = false;
  private Rigidbody2D rb;
 
+ public PlayerMovement script;
+
 void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,7 +20,7 @@ void Start()
     }
     void Update()
     {
-        if (isFloating)
+        if (isFloating && script.ballonVert)
         {
             rb.velocity = new Vector2(rb.velocity.x, floatSpeed);
         }
