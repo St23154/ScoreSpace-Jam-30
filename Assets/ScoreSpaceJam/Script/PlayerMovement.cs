@@ -347,6 +347,10 @@ public class PlayerMovement : MonoBehaviour
 		{
 			RB.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
 		}
+		else if ( _BalloonsDictionaryActivation["Purple"] == true)
+		{
+			RB.AddForce(-400 * Vector2.right, ForceMode2D.Force);
+		}
 
 		#endregion
 
