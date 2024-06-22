@@ -8,6 +8,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -279,7 +280,6 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else if (RB.velocity.y < 0)
 			{
-				Debug.Log(_BalloonsDictionaryActivation["Blue"]);
 				if (_BalloonsDictionaryActivation["Blue"] == true)
 				{
 					SetGravityScale(0.2f);
@@ -334,6 +334,16 @@ public class PlayerMovement : MonoBehaviour
 		//Handle Slide
 		if (IsSliding)
 			Slide();
+
+		#region BALLOON FORCE
+
+		if ( _BalloonsDictionaryActivation["Red"] == true)
+		{
+			RB.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
+		}
+
+		#endregion
+
     }
 
     #region INPUT CALLBACKS
@@ -557,8 +567,10 @@ public class PlayerMovement : MonoBehaviour
 		//So, we clamp the movement here to prevent any over corrections (these aren't noticeable in the Run)
 		//The force applied can't be greater than the (negative) speedDifference * by how many times a second FixedUpdate() is called. For more info research how force are applied to rigidbodies.
 		movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif)  * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
-
-		RB.AddForce(movement * Vector2.up);
+		if (!_BalloonsDictionaryActivation["Red"])
+		{
+			RB.AddForce(movement * Vector2.up);
+		}
 	}
     #endregion
 
