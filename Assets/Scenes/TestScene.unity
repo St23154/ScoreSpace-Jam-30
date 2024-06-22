@@ -2242,7 +2242,7 @@ GameObject:
   - component: {fileID: 978279650}
   - component: {fileID: 978279651}
   m_Layer: 0
-  m_Name: Porte_1_1
+  m_Name: MovableButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2257,7 +2257,7 @@ Transform:
   m_GameObject: {fileID: 978279645}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1371484, y: -1.7764382, z: 0.1615156}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2347,7 +2347,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11364937, y: 1.9061778}
+  m_Offset: {x: -0.10409081, y: 1.9562955}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2358,7 +2358,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9328766, y: 0.7460618}
+  m_Size: {x: 1.0616834, y: 0.70023537}
   m_EdgeRadius: 0
 --- !u!114 &978279650
 MonoBehaviour:
@@ -2372,8 +2372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45d9b3a19567e44e9e382a26e490050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doorAnimator: {fileID: 1711919114}
-  _buttonAnimator: {fileID: 978279651}
+  _door: {fileID: 0}
 --- !u!95 &978279651
 Animator:
   serializedVersion: 5
@@ -2578,7 +2577,7 @@ Transform:
   m_GameObject: {fileID: 1031640544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.87, y: -4.17, z: -0.1615156}
+  m_LocalPosition: {x: -1.25, y: -6.107, z: -0.1615156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3608,7 +3607,7 @@ GameObject:
   - component: {fileID: 1745531467}
   - component: {fileID: 1745531468}
   m_Layer: 0
-  m_Name: Porte_1_0
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3623,7 +3622,7 @@ Transform:
   m_GameObject: {fileID: 1745531466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11614835, y: -2.2234383, z: 0.1615156}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3794,7 +3793,7 @@ GameObject:
   - component: {fileID: 1907651699}
   - component: {fileID: 1907651700}
   m_Layer: 0
-  m_Name: Porte_1_0
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,27 +4,51 @@ using UnityEngine;
 
 public class ButtonBehaviour : MonoBehaviour
 {
-    public Animator _doorAnimator;
-    public Animator _buttonAnimator;
+    public GameObject _door;
+    private float speed = 0f;    // Vitesse de déplacement
 
-    private bool isPlayerOnButton = false;
+    // Start is called before the first frame update
 
-    private void Start()
+    void Update()
     {
-        // Assurez-vous que l'animation commence au bon état
-        _buttonAnimator.Play("ButtonMove", 0, 0); // Jouer l'animation au début
-        _buttonAnimator.speed = 0; // Stopper l'animation au début
-        Debug.Log("Start : Animation initialisée à ButtonMove et stoppée.");
+
+        // Calculer la nouvelle position Y
+        float newY = transform.localPosition.y + speed * Time.deltaTime;
+        float newY_01;
+
+        // S'assurer que l'objet ne dépasse pas la position cible
+        if (newY < -0.5)
+        {
+            newY_01 = _door.transform.localPosition.y + speed * 3 * Time.deltaTime;
+            if (newY_01 < -4.05)
+            {
+                newY_01 = -4.05f;
+            }
+            newY = -0.5f;
+        }
+        else
+        {
+            if ( newY > 0)
+            {
+            newY = 0;
+            }
+            newY_01 = _door.transform.localPosition.y + Mathf.Abs(speed * 3 * Time.deltaTime);
+            if (newY_01 > 0)
+            {
+                newY_01 = 0;
+            }
+        }
+
+        // Appliquer la nouvelle position
+        transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z);
+        _door.transform.localPosition = new Vector3(_door.transform.localPosition.x, newY_01, _door.transform.localPosition.z);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            isPlayerOnButton = true;
-            _buttonAnimator.speed = 1; // Jouer l'animation en avant
-            _doorAnimator.SetBool("DoorUp", false);
-            Debug.Log("OnCollisionEnter2D : Joueur sur le bouton, animation en avant.");
+            speed = -0.4f;
         }
     }
 
@@ -32,34 +56,7 @@ public class ButtonBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            isPlayerOnButton = false;
-            _buttonAnimator.speed = -1; // Jouer l'animation en arrière
-            Debug.Log("OnCollisionExit2D : Joueur hors du bouton, animation en arrière.");
-        }
-    }
-
-    private void Update()
-    {
-        AnimatorStateInfo stateInfo = _buttonAnimator.GetCurrentAnimatorStateInfo(0);
-
-        // Stopper l'animation lorsqu'elle atteint les extrémités
-        if (isPlayerOnButton && stateInfo.normalizedTime >= 1.0f && _buttonAnimator.speed > 0)
-        {
-            _buttonAnimator.speed = 0;
-            Debug.Log("Update : Animation stoppée à la fin.");
-        }
-        else if (!isPlayerOnButton && stateInfo.normalizedTime <= 0.0f && _buttonAnimator.speed < 0)
-        {
-            _buttonAnimator.speed = 0;
-            Debug.Log("Update : Animation stoppée au début.");
-        }
-
-        // Pour éviter les valeurs négatives de normalizedTime
-        if (_buttonAnimator.speed < 0 && stateInfo.normalizedTime <= 0.0f)
-        {
-            _buttonAnimator.Play("ButtonMove", 0, 1.0f); // Rejouer l'animation à la fin
-            _buttonAnimator.speed = -1;
-            Debug.Log("Update : Rejouer l'animation à la fin.");
+            speed = 0.4f;
         }
     }
 }
