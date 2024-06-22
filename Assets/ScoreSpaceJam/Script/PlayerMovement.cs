@@ -73,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
 		{ "Purple", false }
 	};
 
+	private bool isOnFloatingSquare = false;
+
 	#region INPUT PARAMETERS
 	private Vector2 _moveInput;
 
@@ -97,6 +99,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private LayerMask _groundLayer;
 	#endregion
 
+	private bool isPlayerOnTop = false;
+    private GameObject player;
+
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
@@ -106,8 +111,17 @@ public class PlayerMovement : MonoBehaviour
 	{
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
-	}
-
+	} 
+	void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("moveable_object"))
+        {
+            isPlayerOnTop = true;
+            player = collision.gameObject;
+            Debug.Log("Touched");
+        }
+    }
+	
 	private void Update()
 	{
         #region TIMERS
