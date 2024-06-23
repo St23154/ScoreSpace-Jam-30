@@ -23,4 +23,9 @@ public class AnimationEventHandler : MonoBehaviour
     {
             playerMovement.Action3End();
     }
+
+    public void Action4()
+    {
+            playerMovement.Action4End();
+    }
 }

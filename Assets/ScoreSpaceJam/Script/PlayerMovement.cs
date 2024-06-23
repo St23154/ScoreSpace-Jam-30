@@ -81,6 +81,12 @@ public class PlayerMovement : MonoBehaviour
 	public TextMeshProUGUI _redBalloonText;
 	public TextMeshProUGUI _purpleBalloonText;
 	public TextMeshProUGUI _greenBalloonText;
+	public GameObject _redBalloonPrefab;
+	public GameObject _blueBalloonPrefab;
+	public GameObject _purpleBalloonPrefab;
+	public Animator _redBalloonAnimator;
+	public Animator _blueBalloonAnimator;
+	public Animator _purpleBalloonAnimator;
 
 	//Animation
 
@@ -688,9 +694,14 @@ public class PlayerMovement : MonoBehaviour
 				_rendererAnimator.SetTrigger("Action_3");
 				_canMove = false;
 			}
-			else
+			else if (_ballonRef == "Red")
 			{
 				_rendererAnimator.SetTrigger("Action_2");
+				_canMove = false;
+			}
+			else
+			{
+				_rendererAnimator.SetTrigger("Action_4");
 				_canMove = false;
 			}
 			_BalloonsDictionaryActivation[_lastBalloon] = false;
@@ -712,11 +723,24 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action2End()
 	{
+		Animator balloonAnimator = _redBalloonPrefab.GetComponent<Animator>();
+		balloonAnimator.SetBool("Idle",false);
+		balloonAnimator.SetTrigger("Apparear");
+		Vector2 _myPos = new Vector2(transform.position.x - 0.25f,transform.position.y + 1.6f);
+		GameObject _redBalloon = Instantiate(_redBalloonPrefab, _myPos, Quaternion.identity);
+		_redBalloon.transform.SetParent(transform);
+		_redBalloon.transform.Rotate(0, 180, 0);
 		_BalloonsDictionaryActivation[_lastBalloon] = true;
 		_canMove = true;
 	}
 
 	public void Action3End()
+	{
+		_BalloonsDictionaryActivation[_lastBalloon] = true;
+		_canMove = true;
+	}
+
+	public void Action4End()
 	{
 		_BalloonsDictionaryActivation[_lastBalloon] = true;
 		_canMove = true;
