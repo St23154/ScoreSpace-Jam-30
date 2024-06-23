@@ -28,9 +28,9 @@ public class ButtonBehaviour : MonoBehaviour
         }
         else
         {
-            if ( newY > 0)
+            if ( newY > -0.4f)
             {
-            newY = 0;
+            newY = -0.4f;
             }
             newY_01 = _door.transform.localPosition.y + Mathf.Abs(speed * 3 * Time.deltaTime);
             if (newY_01 > 0)
