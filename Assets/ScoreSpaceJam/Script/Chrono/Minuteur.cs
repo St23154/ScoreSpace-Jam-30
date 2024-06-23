@@ -12,7 +12,7 @@ public class Minuteur : MonoBehaviour
 
     void Awake()
     {
-        _bestTime = 0;
+        _bestTime = 999999;
     }
 
     // Start is called before the first frame update
@@ -58,6 +58,9 @@ public class Minuteur : MonoBehaviour
     public void stopTimer()
     {
         _chronoOn = false;
+        if (_time < _bestTime)
+        {
         _bestTime = _time;
+        }
     }
 }
