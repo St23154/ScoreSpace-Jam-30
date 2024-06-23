@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2868306887911665872}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.015718, y: -3.2277336, z: 0}
+  m_LocalPosition: {x: -0.17, y: -2.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -131,7 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatSpeed: 2
   isFloating: 0
-  script: {fileID: 0}
   BoiteBallon: {fileID: 5252567321572979818}
   Boite: {fileID: 8193803218543535900}
 --- !u!61 &1697603700717385260
@@ -166,7 +165,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.40020132, y: 0.33845556}
+  m_Offset: {x: -0.40020132, y: 0.321599}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -177,7 +176,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9376149, y: 1.8415658}
+  m_Size: {x: 1.9376149, y: 1.875279}
   m_EdgeRadius: 0
 --- !u!1 &4902034489594716798
 GameObject:
@@ -206,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 4902034489594716798}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.808, y: 0.19, z: -0.0011273838}
+  m_LocalPosition: {x: -1.808, y: 0.19, z: -0.001127384}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -225,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInRange: 0
-  InteractKey: 101
+  InteractKey: 52
   isInteracting: 0
   interactAction:
     m_PersistentCalls:
@@ -274,9 +273,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0995165, y: 0}
+  m_Offset: {x: 1.099517, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5995165
+  m_Radius: 1.599517
 --- !u!1 &5252567321572979818
 GameObject:
   m_ObjectHideFlags: 0
