@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1cadfb2fdb77f1c4580e28bccb669cc4
+guid: 7ba1d43094a9e1541a1731aa31e2ea39
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ballon_2_0
+      name: Spike_2 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
-        width: 128
-        height: 320
+        y: 560
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,92 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad91dc95f02644745a90ab87bfeaa32b
-      internalID: -1345799081
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ballon_2_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 320
-        width: 128
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 190abeadf3252d241a33f2edbe0c25b9
-      internalID: -1987145100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ballon_2_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 320
-        width: 128
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1f52574c3fa5874eab2dbc5f5d149ff
-      internalID: -1576431798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ballon_2_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 320
-        width: 128
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e31783a3b1bd94409248b4ab91282b1
-      internalID: -270659590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ballon_2_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 320
-        width: 128
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9051baff9d5b3304eb3d8265b3060707
-      internalID: -1546647135
+      spriteID: 5c7c37b054d39d047a32b4c7d51cc1c1
+      internalID: -2034154774
       vertices: []
       indices: 
       edges: []
@@ -230,7 +146,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0da5babb210632e4994b19c405c02507
+    spriteID: e35c8b2469db4af47b67a3854cc430af
     internalID: 0
     vertices: []
     indices: 
@@ -238,11 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ballon_2_0: -1345799081
-      ballon_2_1: -1987145100
-      ballon_2_2: -1576431798
-      ballon_2_3: -270659590
-      ballon_2_4: -1546647135
+      Spike_2 1_0: -2034154774
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
