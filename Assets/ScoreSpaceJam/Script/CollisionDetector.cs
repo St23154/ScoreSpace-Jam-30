@@ -11,7 +11,6 @@ public class CollisionDetector : MonoBehaviour
  public PlayerMovement script;
  public GameObject BoiteBallon;
  public GameObject Boite;
-private bool assezballon;
 void Start()
     {
         rb = GetComponent<Rigidbody2D>();

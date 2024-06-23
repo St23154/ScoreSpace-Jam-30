@@ -380,14 +380,6 @@ PrefabInstance:
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1547619025}
-    - target: {fileID: 1987338246042297028, guid: 91b7a2885188bf047be55c5dc335e32c, type: 3}
-      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Check_Balloon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1987338246042297028, guid: 91b7a2885188bf047be55c5dc335e32c, type: 3}
-      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerMovement, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 2243550507433182104, guid: 91b7a2885188bf047be55c5dc335e32c, type: 3}
       propertyPath: script
       value: 
@@ -395,10 +387,6 @@ PrefabInstance:
     - target: {fileID: 2868306887911665872, guid: 91b7a2885188bf047be55c5dc335e32c, type: 3}
       propertyPath: m_Name
       value: moveable_object (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902034489594716798, guid: 91b7a2885188bf047be55c5dc335e32c, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5539200745294579473, guid: 91b7a2885188bf047be55c5dc335e32c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -445,6 +433,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91b7a2885188bf047be55c5dc335e32c, type: 3}
+--- !u!114 &243662113 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1987338246042297028, guid: 91b7a2885188bf047be55c5dc335e32c, type: 3}
+  m_PrefabInstance: {fileID: 243662112}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88fbfb73076d1c4cb81edc1598d8017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &243662114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2243550507433182104, guid: 91b7a2885188bf047be55c5dc335e32c, type: 3}
+  m_PrefabInstance: {fileID: 243662112}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dded96657efe7c44875c3242268acf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &280921141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1553,7 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 243662114}
         m_TargetAssemblyTypeName: CollisionDetector, Assembly-CSharp
         m_MethodName: IsFloating
         m_Mode: 1
@@ -1565,8 +1575,8 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  interact: {fileID: 0}
-  collisionDetector: {fileID: 0}
+  interact: {fileID: 243662113}
+  collisionDetector: {fileID: 243662114}
 --- !u!50 &1547619026
 Rigidbody2D:
   serializedVersion: 4

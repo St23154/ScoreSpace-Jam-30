@@ -124,14 +124,15 @@ public class PlayerMovement : MonoBehaviour
 	} 
 	public void Check_Balloon(){
 		if(collisionDetector.isFloating){
-			interactAction.Invoke();
-		}
-		if (_BalloonsDictionary["Green"] > 0){
-			_BalloonsDictionary["Green"] -= 1;
-			_rendererAnimator.SetTrigger("Action_1");
-			_canMove = false;
-			}
-
+			Debug.Log("1");
+            interactAction.Invoke();
+        }
+        else if (_BalloonsDictionary["Green"] > 0){
+			Debug.Log("2");
+            _BalloonsDictionary["Green"] -= 1;
+            _rendererAnimator.SetTrigger("Action_1");
+            _canMove = false;
+            }
 
 			
 
