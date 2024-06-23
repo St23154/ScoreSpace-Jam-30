@@ -8,7 +8,6 @@ public class CollisionDetector : MonoBehaviour
     public bool isFloating = false;
  private Rigidbody2D rb;
 
- public PlayerMovement script;
  public GameObject BoiteBallon;
  public GameObject Boite;
 void Start()
@@ -29,7 +28,6 @@ void Start()
     }
 
     public void IsFloating(){
-        Debug.Log(script.ballonVert);
         if (isFloating){
             isFloating = false;
             BoiteBallon.SetActive(false);
