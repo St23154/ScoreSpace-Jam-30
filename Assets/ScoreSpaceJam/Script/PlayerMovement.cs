@@ -740,6 +740,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action1End()
 	{
+		Debug.Log("end");
 		interactAction.Invoke();
 		_canMove = true;
 	}
