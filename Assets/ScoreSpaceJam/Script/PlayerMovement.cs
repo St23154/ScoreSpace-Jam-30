@@ -401,11 +401,11 @@ public class PlayerMovement : MonoBehaviour
 				_purpleBalloonFill.fillAmount = 1 - _time/2;
 				if (transform.localScale.x == 0.8f)
 				{
-					RB.AddForce(200 * Vector2.right, ForceMode2D.Force);
+					RB.AddForce(150 * Vector2.right, ForceMode2D.Force);
 				}
 				else
 				{
-					RB.AddForce(-200 * Vector2.right, ForceMode2D.Force);
+					RB.AddForce(-150 * Vector2.right, ForceMode2D.Force);
 				}
 			}
 			else
