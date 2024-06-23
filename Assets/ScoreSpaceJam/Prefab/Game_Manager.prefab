@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 179968613482226472}
   - component: {fileID: 6441422943351451610}
   - component: {fileID: 6684916802538025592}
+  - component: {fileID: 8211409485464100944}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: GameManager
@@ -57,3 +58,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec679d4d20b8ec48a59e5a86783f877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
+--- !u!114 &8211409485464100944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4084654433844631711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8a5932f5c8f2d4ea3c7d33cda691c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Victory
+    clip: {fileID: 8300000, guid: 4403c4bf5ff57c042bffcf2efe0fe5c2, type: 3}
+    mixer: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
