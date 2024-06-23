@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 	public TextMeshProUGUI _blueBalloonText;
 	public TextMeshProUGUI _redBalloonText;
 	public TextMeshProUGUI _purpleBalloonText;
-	public TextMeshProUGUI _greenBalloonText;
+	private TextMeshProUGUI _greenBalloonText;
 	public UnityEngine.UI.Image _redBalloonFill;
 	public UnityEngine.UI.Image _blueBalloonFill;
 	public UnityEngine.UI.Image _purpleBalloonFill;
@@ -138,6 +138,14 @@ public class PlayerMovement : MonoBehaviour
 	{
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
+		// Si les objets sont enfants de ce GameObject ou du Canvas, utilisez GetComponentInChildren
+        _redBalloonText = transform.Find("Image/Signs/BallonRouge").GetComponent<TextMeshProUGUI>();
+        _blueBalloonText = transform.Find("Image/Signs/BallonBleu").GetComponent<TextMeshProUGUI>();
+        _purpleBalloonText = transform.Find("Image/Signs/BallonViolet").GetComponent<TextMeshProUGUI>();
+        _greenBalloonText = transform.Find("Image/Signs/BallonVert").GetComponent<TextMeshProUGUI>();
+        _redBalloonFill = transform.Find("Image/Signs/BallonRougeFill").GetComponent<UnityEngine.UI.Image>();
+        _blueBalloonFill = transform.Find("Image/Signs/BallonBleuFill").GetComponent<UnityEngine.UI.Image>();
+        _purpleBalloonFill = transform.Find("Image/Signs/BallonVioletFill").GetComponent<UnityEngine.UI.Image>();
 	} 
 	public void Check_Balloon(){
 		if(collisionDetector.isFloating){
