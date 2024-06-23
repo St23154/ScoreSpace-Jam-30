@@ -274,7 +274,7 @@ Transform:
   m_GameObject: {fileID: 41599287}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -8.598965, y: -3.2684317, z: 9.9425}
+  m_LocalPosition: {x: -11.83, y: -3.27, z: 9.9425}
   m_LocalScale: {x: 40.897495, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2269,6 +2269,7 @@ GameObject:
   - component: {fileID: 1194743729}
   - component: {fileID: 1194743728}
   - component: {fileID: 1194743727}
+  - component: {fileID: 1194743730}
   m_Layer: 0
   m_Name: Trampoline
   m_TagString: Trampoline
@@ -2382,12 +2383,24 @@ Transform:
   m_GameObject: {fileID: 1194743726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.26, y: -0.32, z: 0}
+  m_LocalPosition: {x: 21.44, y: 1.97, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1194743730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194743726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823a1b04e6b65924aa5d17bfaa47f469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301295640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,13 +2847,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444802361}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7578759, w: 0.6523988}
   m_LocalPosition: {x: -8.728965, y: 36.52157, z: 9.9425}
   m_LocalScale: {x: 40.897495, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 941518053}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -98.555}
 --- !u!1 &1547619024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,6 +2891,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ballonVert: 0
+  _rendererAnimator: {fileID: 0}
   _groundCheckPoint: {fileID: 1733434473}
   _groundCheckSize: {x: 0.2, y: 0.1}
   _frontWallCheckPoint: {fileID: 180560258}
@@ -3549,7 +3563,7 @@ Transform:
   m_GameObject: {fileID: 1931203729}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.208965, y: 19.671568, z: 9.9425}
+  m_LocalPosition: {x: -3.73, y: 27.09, z: 9.9425}
   m_LocalScale: {x: 40.897495, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
