@@ -8,6 +8,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -76,6 +77,10 @@ public class PlayerMovement : MonoBehaviour
 	};
 	public bool ballonVert = false;
 	private bool isOnFloatingSquare = false;
+	public TextMeshProUGUI _blueBalloonText;
+	public TextMeshProUGUI _redBalloonText;
+	public TextMeshProUGUI _purpleBalloonText;
+	public TextMeshProUGUI _greenBalloonText;
 
 	//Animation
 
@@ -124,12 +129,11 @@ public class PlayerMovement : MonoBehaviour
 	} 
 	public void Check_Balloon(){
 		if(collisionDetector.isFloating){
-			Debug.Log("1");
             interactAction.Invoke();
         }
         else if (_BalloonsDictionary["Green"] > 0){
-			Debug.Log("2");
             _BalloonsDictionary["Green"] -= 1;
+			UpdateBalloonsText();
             _rendererAnimator.SetTrigger("Action_1");
             _canMove = false;
             }
@@ -199,11 +203,6 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyUp(KeyCode.Alpha4))
 		{
 			PutBalloon("Purple");
-		}
-
-		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
-		{
-			OnDashInput();
 		}
 		#endregion
 
@@ -275,29 +274,6 @@ public class PlayerMovement : MonoBehaviour
 
 				WallJump(_lastWallJumpDir);
 			}
-		}
-		#endregion
-
-		#region DASH CHECKS
-		if (CanDash() && LastPressedDashTime > 0)
-		{
-			//Freeze game for split second. Adds juiciness and a bit of forgiveness over directional input
-			Sleep(Data.dashSleepTime); 
-
-			//If not direction pressed, dash forward
-			if (_moveInput != Vector2.zero)
-				_lastDashDir = _moveInput;
-			else
-				_lastDashDir = IsFacingRight ? Vector2.right : Vector2.left;
-
-
-
-			IsDashing = true;
-			IsJumping = false;
-			IsWallJumping = false;
-			_isJumpCut = false;
-
-			StartCoroutine(nameof(StartDash), _lastDashDir);
 		}
 		#endregion
 
@@ -681,16 +657,6 @@ public class PlayerMovement : MonoBehaviour
 		return IsWallJumping && RB.velocity.y > 0;
 	}
 
-	private bool CanDash()
-	{
-		if (!IsDashing && _dashesLeft < Data.dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
-		{
-			StartCoroutine(nameof(RefillDash), 1);
-		}
-
-		return _dashesLeft > 0;
-	}
-
 	public bool CanSlide()
     {
 		if (LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0)
@@ -731,17 +697,15 @@ public class PlayerMovement : MonoBehaviour
 			_BalloonsDictionary[_ballonRef] -= 1;
 			_lastBalloon = _ballonRef;
 			_time = 0;
-			Debug.Log("-1 " + _ballonRef + "balloon");
+			UpdateBalloonsText();
 		}
 		else
 		{
-			Debug.Log("no " + _ballonRef + " balloon");
 		}
 	}
 
 	public void Action1End()
 	{
-		Debug.Log("end");
 		interactAction.Invoke();
 		_canMove = true;
 	}
@@ -768,30 +732,37 @@ public class PlayerMovement : MonoBehaviour
         {
 			Destroy(collidedObject);
             _BalloonsDictionary["Red"] += 1;
-			Debug.Log("there is " + _BalloonsDictionary["Red"] + "Red balloons");
+			UpdateBalloonsText();
         }
 
 		else if (other.CompareTag("BlueBalloon"))
         {
-            _BalloonsDictionary["Blue"] += 1;
-			Debug.Log("there is " + _BalloonsDictionary["Blue"] + "Blue balloons");
 			Destroy(collidedObject);
+            _BalloonsDictionary["Blue"] += 1;
+			UpdateBalloonsText();
         }
 
 		else if (other.CompareTag("GreenBalloon"))
         {
-            _BalloonsDictionary["Green"] += 1;
-			ballonVert = true;
-			Debug.Log("there is " + _BalloonsDictionary["Green"] + "Green balloons");
 			Destroy(collidedObject);
-        }
+            _BalloonsDictionary["Green"] += 1;
+			UpdateBalloonsText();
+		}
 
 		else if (other.CompareTag("PurpleBalloon"))
         {
-            _BalloonsDictionary["Purple"] += 1;
-			Debug.Log("there is " + _BalloonsDictionary["Purple"] + "Purple balloons");
 			Destroy(collidedObject);
+            _BalloonsDictionary["Purple"] += 1;
+			UpdateBalloonsText();
         }
+	}
+
+	private void UpdateBalloonsText()
+	{
+		_purpleBalloonText.text = _BalloonsDictionary["Purple"].ToString();
+		_greenBalloonText.text = _BalloonsDictionary["Green"].ToString();
+		_blueBalloonText.text = _BalloonsDictionary["Blue"].ToString();
+		_redBalloonText.text = _BalloonsDictionary["Red"].ToString();
 	}
 	#endregion
 
