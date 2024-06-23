@@ -46,7 +46,7 @@ public class ButtonBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("moveable_object"))
         {
             speed = -0.4f;
         }
@@ -54,7 +54,7 @@ public class ButtonBehaviour : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("moveable_object"))
         {
             speed = 0.4f;
         }
