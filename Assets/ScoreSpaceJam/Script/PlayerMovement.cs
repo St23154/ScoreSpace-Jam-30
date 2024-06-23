@@ -84,9 +84,6 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject _redBalloonPrefab;
 	public GameObject _blueBalloonPrefab;
 	public GameObject _purpleBalloonPrefab;
-	public Animator _redBalloonAnimator;
-	public Animator _blueBalloonAnimator;
-	public Animator _purpleBalloonAnimator;
 
 	//Animation
 
@@ -723,16 +720,21 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action2End()
 	{
-		Animator balloonAnimator = _redBalloonPrefab.GetComponent<Animator>();
-		balloonAnimator.SetBool("Idle",false);
-		balloonAnimator.SetTrigger("Apparear");
-		Vector2 _myPos = new Vector2(transform.position.x - 0.25f,transform.position.y + 1.6f);
+		Vector2 _myPos = new Vector2(transform.position.x - 0.25f, transform.position.y + 1.6f);
 		GameObject _redBalloon = Instantiate(_redBalloonPrefab, _myPos, Quaternion.identity);
 		_redBalloon.transform.SetParent(transform);
 		_redBalloon.transform.Rotate(0, 180, 0);
+
+		// Access the Animator component of the instantiated object
+		Animator balloonAnimator = _redBalloon.GetComponent<Animator>();
+		
+		balloonAnimator.SetBool("Idle", false);
+		balloonAnimator.SetTrigger("Apparear");
+
 		_BalloonsDictionaryActivation[_lastBalloon] = true;
 		_canMove = true;
 	}
+
 
 	public void Action3End()
 	{
@@ -742,6 +744,17 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action4End()
 	{
+		Vector2 _myPos = new Vector2(transform.position.x - 1.5f, transform.position.y - 0.4f);
+		GameObject _blueBalloon = Instantiate(_blueBalloonPrefab, _myPos, Quaternion.identity);
+		_blueBalloon.transform.SetParent(transform);
+		_blueBalloon.transform.Rotate(0, 180, 0);
+
+		// Access the Animator component of the instantiated object
+		Animator balloonAnimator = _blueBalloon.GetComponent<Animator>();
+		
+		balloonAnimator.SetBool("Idle", false);
+		balloonAnimator.SetTrigger("Apparear");
+
 		_BalloonsDictionaryActivation[_lastBalloon] = true;
 		_canMove = true;
 	}

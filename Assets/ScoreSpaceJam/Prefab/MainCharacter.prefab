@@ -137,9 +137,6 @@ MonoBehaviour:
   _redBalloonPrefab: {fileID: 3620055598793990662, guid: 54a9e2eb493d46742a0a6b6baab9e9e3, type: 3}
   _blueBalloonPrefab: {fileID: 3620055598793990662, guid: 17617b8b5878ba142b40b55f158e434e, type: 3}
   _purpleBalloonPrefab: {fileID: 3620055598793990662, guid: ae7385f834b83cb47a30ad3a7d7c13c3, type: 3}
-  _redBalloonAnimator: {fileID: 0}
-  _blueBalloonAnimator: {fileID: 0}
-  _purpleBalloonAnimator: {fileID: 0}
   _rendererAnimator: {fileID: 6316429337958550071}
   _groundCheckPoint: {fileID: 350259334522315839}
   _groundCheckSize: {x: 0.2, y: 0.1}
