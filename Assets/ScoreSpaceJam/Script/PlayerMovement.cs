@@ -8,9 +8,11 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
@@ -81,6 +83,9 @@ public class PlayerMovement : MonoBehaviour
 	public TextMeshProUGUI _redBalloonText;
 	public TextMeshProUGUI _purpleBalloonText;
 	public TextMeshProUGUI _greenBalloonText;
+	public UnityEngine.UI.Image _redBalloonFill;
+	public UnityEngine.UI.Image _blueBalloonFill;
+	public UnityEngine.UI.Image _purpleBalloonFill;
 	public GameObject _redBalloonPrefab;
 	public GameObject _blueBalloonPrefab;
 	public GameObject _purpleBalloonPrefab;
@@ -371,6 +376,7 @@ public class PlayerMovement : MonoBehaviour
 			if (_time < 4)
 			{
 				_time += Time.deltaTime;
+				_redBalloonFill.fillAmount = 1 - _time/4;
 				RB.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
 			}
 			else
@@ -384,6 +390,7 @@ public class PlayerMovement : MonoBehaviour
 			if (_time < 2)
 			{
 				_time += Time.deltaTime;
+				_purpleBalloonFill.fillAmount = 1 - _time/2;
 				if (transform.localScale.x == 0.8f)
 				{
 					RB.AddForce(200 * Vector2.right, ForceMode2D.Force);
@@ -404,6 +411,7 @@ public class PlayerMovement : MonoBehaviour
 			if (_time < 10)
 			{
 				_time += Time.deltaTime;
+				_blueBalloonFill.fillAmount = 1 - _time/10;
 			}
 			else
 			{
