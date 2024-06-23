@@ -30,6 +30,10 @@ public class Minuteur : MonoBehaviour
         _time += Time.deltaTime;
         updateChrono(_time);
         }
+        else
+        {
+            updateChrono(_bestTime);
+        }
     }
 
     void updateChrono(float _chrono)
@@ -48,6 +52,7 @@ public class Minuteur : MonoBehaviour
 
     public void stopTimer()
     {
+        Debug.Log("stop");
         _chronoOn = false;
         _bestTime = _time;
     }
