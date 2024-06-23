@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
 	//Animation
 
 	public Animator _rendererAnimator;
+	private bool _canMove = true;
 
 	#region INPUT PARAMETERS
 	private Vector2 _moveInput;
@@ -127,8 +128,8 @@ public class PlayerMovement : MonoBehaviour
 		}
 		if (_BalloonsDictionary["Green"] > 0){
 			_BalloonsDictionary["Green"] -= 1;
-			Debug.Log("ballonvert");
-			interactAction.Invoke();
+			_rendererAnimator.SetTrigger("Action_1");
+			_canMove = false;
 			}
 
 
@@ -145,6 +146,13 @@ public class PlayerMovement : MonoBehaviour
 
 		LastPressedJumpTime -= Time.deltaTime;
 		LastPressedDashTime -= Time.deltaTime;
+		#endregion
+
+		#region CHECK IF CAN MOVE
+		if (!_canMove)
+		{
+			_moveInput =  new Vector2(0,0);
+		}
 		#endregion
 
 		#region INPUT HANDLER
@@ -396,7 +404,7 @@ public class PlayerMovement : MonoBehaviour
 			if (_time < 3)
 			{
 				_time += Time.deltaTime;
-				if (transform.localScale.x == 1f)
+				if (transform.localScale.x == 0.8f)
 				{
 					RB.AddForce(200 * Vector2.right, ForceMode2D.Force);
 				}
@@ -708,21 +716,18 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (_BalloonsDictionary[_ballonRef] >= 1)
 		{
-			if (_ballonRef == "Vert")
-			{
-				_rendererAnimator.SetTrigger("Action_1");
-			}
 			if (_ballonRef == "Purple")
 			{
 				_rendererAnimator.SetTrigger("Action_3");
+				_canMove = false;
 			}
 			else
 			{
 				_rendererAnimator.SetTrigger("Action_2");
+				_canMove = false;
 			}
 			_BalloonsDictionaryActivation[_lastBalloon] = false;
 			_BalloonsDictionary[_ballonRef] -= 1;
-			_BalloonsDictionaryActivation[_ballonRef] = true;
 			_lastBalloon = _ballonRef;
 			_time = 0;
 			Debug.Log("-1 " + _ballonRef + "balloon");
@@ -731,6 +736,24 @@ public class PlayerMovement : MonoBehaviour
 		{
 			Debug.Log("no " + _ballonRef + " balloon");
 		}
+	}
+
+	public void Action1End()
+	{
+		interactAction.Invoke();
+		_canMove = true;
+	}
+
+	public void Action2End()
+	{
+		_BalloonsDictionaryActivation[_lastBalloon] = true;
+		_canMove = true;
+	}
+
+	public void Action3End()
+	{
+		_BalloonsDictionaryActivation[_lastBalloon] = true;
+		_canMove = true;
 	}
 	#endregion
 
