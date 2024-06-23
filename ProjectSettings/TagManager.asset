@@ -19,6 +19,8 @@ TagManager:
   - BallonBleuFill
   - BallonVioletFill
   - BallonVert
+  - TimerText
+  - GameManager
   layers:
   - Default
   - TransparentFX
