@@ -77,6 +77,10 @@ public class PlayerMovement : MonoBehaviour
 	public bool ballonVert = false;
 	private bool isOnFloatingSquare = false;
 
+	//Animation
+
+	public Animator _rendererAnimator;
+
 	#region INPUT PARAMETERS
 	private Vector2 _moveInput;
 
@@ -150,7 +154,14 @@ public class PlayerMovement : MonoBehaviour
 		
         
 		if (_moveInput.x != 0)
+		{
+			_rendererAnimator.SetBool("IsWalking", true);
 			CheckDirectionToFace(_moveInput.x > 0);
+		}
+		else
+		{
+			_rendererAnimator.SetBool("IsWalking", false);
+		}
 
 		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.J))
         {
@@ -698,6 +709,18 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (_BalloonsDictionary[_ballonRef] >= 1)
 		{
+			if (_ballonRef == "Vert")
+			{
+				_rendererAnimator.SetTrigger("Action_1");
+			}
+			if (_ballonRef == "Purple")
+			{
+				_rendererAnimator.SetTrigger("Action_3");
+			}
+			else
+			{
+				_rendererAnimator.SetTrigger("Action_2");
+			}
 			_BalloonsDictionaryActivation[_lastBalloon] = false;
 			_BalloonsDictionary[_ballonRef] -= 1;
 			_BalloonsDictionaryActivation[_ballonRef] = true;
