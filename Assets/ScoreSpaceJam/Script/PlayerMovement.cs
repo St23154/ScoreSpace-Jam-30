@@ -200,11 +200,6 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetKeyUp(KeyCode.Alpha3))
 		{
-			PutBalloon("Green");
-		}
-
-		if (Input.GetKeyUp(KeyCode.Alpha4))
-		{
 			PutBalloon("Purple");
 		}
 		#endregion
