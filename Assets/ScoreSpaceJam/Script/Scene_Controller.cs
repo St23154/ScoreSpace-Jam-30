@@ -15,6 +15,12 @@ public class Scene_Controller : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+   void Update(){
+        if(Input.GetKeyUp(KeyCode.R)){
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
     // Start is called before the first frame update
     public void NextLevel(){
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +1 );
