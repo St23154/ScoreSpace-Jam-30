@@ -4,11 +4,13 @@ public class CollisionDetector : MonoBehaviour
 {
     private bool isPlayerOnTop = false;
     private GameObject player;
-    public float floatSpeed = 2f;
+    public float floatSpeed = 3f;
     public bool isFloating = false;
  private Rigidbody2D rb;
 
  public PlayerMovement script;
+ public GameObject BoiteBallon;
+ public GameObject Boite;
 private bool assezballon;
 void Start()
     {
@@ -31,10 +33,15 @@ void Start()
         Debug.Log(script.ballonVert);
         if (isFloating){
             isFloating = false;
+            BoiteBallon.SetActive(false);
+            Boite.SetActive(true);
         }
        else {
             Debug.Log("marchennnnnn");
             isFloating = true;
+            BoiteBallon.SetActive(true);
+            Boite.SetActive(false);
+
         }
         }
     }
