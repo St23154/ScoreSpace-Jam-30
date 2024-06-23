@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Minuteur : MonoBehaviour
 {
-    public bool _chronoOn;
+    public static bool _chronoOn;
     public static float _time;
     public static float _bestTime;
     public TextMeshProUGUI timerText;
@@ -19,7 +19,6 @@ public class Minuteur : MonoBehaviour
     void Start()
     {
         timerText = GameObject.FindWithTag("TimerText").GetComponent<TextMeshProUGUI>();
-        _chronoOn = true;
     }
 
     // Update is called once per frame
@@ -27,8 +26,8 @@ public class Minuteur : MonoBehaviour
     {
         if(_chronoOn)
         {
-        _time += Time.deltaTime;
-        updateChrono(_time);
+            _time += Time.deltaTime;
+            updateChrono(_time);
         }
         else
         {
@@ -42,7 +41,7 @@ public class Minuteur : MonoBehaviour
         float min = Mathf.FloorToInt(_chrono / 60);
         float sec = Mathf.FloorToInt(_chrono % 60);
 
-        timerText.text = string.Format("well done, your best time :{00} : {1:00}", min, sec);
+        timerText.text = string.Format("well done, your best time : {00} : {1:00}", min, sec);
     }
 
     public void startTimer()
@@ -52,7 +51,6 @@ public class Minuteur : MonoBehaviour
 
     public void stopTimer()
     {
-        Debug.Log("stop");
         _chronoOn = false;
         _bestTime = _time;
     }
