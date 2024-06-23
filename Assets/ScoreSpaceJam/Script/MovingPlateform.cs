@@ -45,4 +45,6 @@ public class MovingPlateform : MonoBehaviour
             Gizmos.DrawLine(_plateform.transform.position, _endPoint.position);
         }
     }
+
+
 }

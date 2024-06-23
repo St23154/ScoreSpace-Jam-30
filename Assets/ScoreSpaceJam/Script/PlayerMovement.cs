@@ -120,7 +120,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
-		Debug.Log(interact.isInRange);
 	} 
 	public void Check_Balloon(){
 		if(collisionDetector.isFloating){

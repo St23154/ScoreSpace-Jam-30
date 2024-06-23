@@ -50,6 +50,7 @@ public class ButtonBehaviour : MonoBehaviour
         {
             Debug.Log("collision avec le bouton");
             speed = -0.4f;
+    
         }
     }
 
@@ -59,6 +60,7 @@ public class ButtonBehaviour : MonoBehaviour
         {
             Debug.Log("sortie bouton");
             speed = 0.4f;
+            
         }
     }
 }
