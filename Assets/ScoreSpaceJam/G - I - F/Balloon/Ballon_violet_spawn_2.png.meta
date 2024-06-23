@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b607700132a6a64db9b41157ef278d3
+guid: 4b01fe03fe8e785489157d4d2f08c4d3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,28 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1920
-        width: 640
-        height: 640
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca10db68827cc3e4ea8f6cf3b78efb76
-      internalID: -911310247
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_1
+      name: Ballon_violet_spawn_2_0
       rect:
         serializedVersion: 2
         x: 640
@@ -158,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0011f16446d6af44c9daeb33121861a2
-      internalID: 1132249545
+      spriteID: 59da73735d8d6eb4fa7b8fe4d292cd86
+      internalID: -1723997134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_2
+      name: Ballon_violet_spawn_2_1
       rect:
         serializedVersion: 2
         x: 1280
@@ -179,14 +158,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 761db45b618410b458482e6945b0a1c9
-      internalID: -1572033784
+      spriteID: 631eaffcdba4e454eac275d5afcb93c8
+      internalID: 615453455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_3
+      name: Ballon_violet_spawn_2_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcae7846eb8dd94408bb2e5e2e16ac9e
+      internalID: -691625561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ballon_violet_spawn_2_3
       rect:
         serializedVersion: 2
         x: 0
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4120d3ae5cd254041aafa487c687cf9c
-      internalID: -1307392368
+      spriteID: e8228ddccafd7b4458a2e4b1fda0808b
+      internalID: 395866420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_4
+      name: Ballon_violet_spawn_2_4
       rect:
         serializedVersion: 2
         x: 640
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd8f69fa9e9325942abc5a75c89ca1ea
-      internalID: -510561248
+      spriteID: afa08cc1bb607244987947a241f470a1
+      internalID: 303712344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_5
+      name: Ballon_violet_spawn_2_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -242,14 +242,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd33265e6e9d7a34b955b3d3d62928c5
-      internalID: 1995441103
+      spriteID: 7e049f5b28e51ba49a04ccfb23826c17
+      internalID: 860412910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_6
+      name: Ballon_violet_spawn_2_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e63c9f2770771e04fa2d995dc7820e44
+      internalID: 552268982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ballon_violet_spawn_2_7
       rect:
         serializedVersion: 2
         x: 0
@@ -263,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6f1b356ab8533d44b280c5681918d35
-      internalID: 824840377
+      spriteID: ff60f093500768a4d93b9c2ea2b528f9
+      internalID: -1801131347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_7
+      name: Ballon_violet_spawn_2_8
       rect:
         serializedVersion: 2
         x: 640
@@ -284,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2228567b2d44f5a4e8300fb930da98c9
-      internalID: -2104623603
+      spriteID: 1f7b35a09bdfcba4aa1c352085de485b
+      internalID: 133944926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_8
+      name: Ballon_violet_spawn_2_9
       rect:
         serializedVersion: 2
         x: 1280
@@ -305,14 +326,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 178e4cd127aaac8469c95be12be1bccb
-      internalID: 25468195
+      spriteID: 75722bed8bc1cd24790cef5767ebe453
+      internalID: -542660394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ballon_bleu_spawn_1_9
+      name: Ballon_violet_spawn_2_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 640
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689fb58fee8b09c4396d9195c3c216ca
+      internalID: 483705387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ballon_violet_spawn_2_11
       rect:
         serializedVersion: 2
         x: 0
@@ -326,8 +368,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dab2bceabb0ab3745a92cf55876ad1aa
-      internalID: 802145243
+      spriteID: b215b2ceb00610e4fb8bf7d2dc29f2f6
+      internalID: -565087326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ballon_violet_spawn_2_12
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 515a1b7848a70f1468d92b18d7d37e42
+      internalID: -649051946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ballon_violet_spawn_2_13
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbbb60bf90686e47a6b3c697bcdf8a2
+      internalID: -4929323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ballon_violet_spawn_2_14
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a58322236528fa43aa6ed855190069e
+      internalID: 1203866058
       vertices: []
       indices: 
       edges: []
@@ -335,7 +440,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 576a8c359cefb9944ad48cff4e4abb66
+    spriteID: 59c2593fe47f5e94c8c9ae85d18ff608
     internalID: 0
     vertices: []
     indices: 
@@ -343,16 +448,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ballon_bleu_spawn_1_0: -911310247
-      Ballon_bleu_spawn_1_1: 1132249545
-      Ballon_bleu_spawn_1_2: -1572033784
-      Ballon_bleu_spawn_1_3: -1307392368
-      Ballon_bleu_spawn_1_4: -510561248
-      Ballon_bleu_spawn_1_5: 1995441103
-      Ballon_bleu_spawn_1_6: 824840377
-      Ballon_bleu_spawn_1_7: -2104623603
-      Ballon_bleu_spawn_1_8: 25468195
-      Ballon_bleu_spawn_1_9: 802145243
+      Ballon_violet_spawn_2_0: -1723997134
+      Ballon_violet_spawn_2_1: 615453455
+      Ballon_violet_spawn_2_10: 483705387
+      Ballon_violet_spawn_2_11: -565087326
+      Ballon_violet_spawn_2_12: -649051946
+      Ballon_violet_spawn_2_13: -4929323
+      Ballon_violet_spawn_2_14: 1203866058
+      Ballon_violet_spawn_2_2: -691625561
+      Ballon_violet_spawn_2_3: 395866420
+      Ballon_violet_spawn_2_4: 303712344
+      Ballon_violet_spawn_2_5: 860412910
+      Ballon_violet_spawn_2_6: 552268982
+      Ballon_violet_spawn_2_7: -1801131347
+      Ballon_violet_spawn_2_8: 133944926
+      Ballon_violet_spawn_2_9: -542660394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

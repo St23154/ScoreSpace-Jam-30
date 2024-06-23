@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4393995413951194784}
   - component: {fileID: 3138344795387622163}
   - component: {fileID: 5831309743947448521}
-  - component: {fileID: 2814301833928592620}
+  - component: {fileID: 5419529252242241131}
   m_Layer: 0
   m_Name: BlueBalloon
   m_TagString: BlueBalloon
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3620055598793990662}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.53, y: -6.603, z: 0}
+  m_LocalPosition: {x: -2.39, y: -3.29, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 802145243, guid: 3b607700132a6a64db9b41157ef278d3, type: 3}
+  m_Sprite: {fileID: 648065068, guid: 24f060788f000ec45baa919300ca42f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.4, y: 6.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!60 &2814301833928592620
+--- !u!60 &5419529252242241131
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,28 +144,28 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6.4, y: 6.4}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 6.4, y: 6.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.325, y: 1.95}
-      - {x: -1.2875, y: 2.2250001}
-      - {x: -1.125, y: 2.4625}
-      - {x: -1.125, y: 2.8500001}
-      - {x: -1.225, y: 2.925}
-      - {x: -1.45, y: 2.925}
-      - {x: -1.575, y: 2.8375}
-      - {x: -1.575, y: 2.4625}
-      - {x: -1.4625, y: 2.3500001}
-      - {x: -1.375, y: 2.375}
-      - {x: -1.4250001, y: 2.25}
-      - {x: -1.525, y: 1.65}
-      - {x: -1.575, y: 1.475}
-      - {x: -1.575, y: 1.125}
-      - {x: -1.5, y: 1.125}
-      - {x: -1.475, y: 1.15}
-      - {x: -1.4250001, y: 1.35}
+    - - {x: 0.275, y: 0.85}
+      - {x: 0.32500002, y: 0.96250004}
+      - {x: 0.425, y: 1.075}
+      - {x: 0.425, y: 1.45}
+      - {x: 0.32500002, y: 1.525}
+      - {x: 0.1, y: 1.525}
+      - {x: -0.025, y: 1.4375}
+      - {x: -0.025, y: 1.0625}
+      - {x: 0.0875, y: 0.95}
+      - {x: 0.175, y: 0.975}
+      - {x: 0.125, y: 0.85}
+      - {x: 0.025, y: 0.25}
+      - {x: -0.025, y: 0.025}
+      - {x: -0.025, y: -0.275}
+      - {x: 0.0625, y: -0.275}
+      - {x: 0.0875, y: -0.26250002}
+      - {x: 0.125, y: -0.05}
   m_UseDelaunayMesh: 0

@@ -720,8 +720,16 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action2End()
 	{
-		Vector2 _myPos = new Vector2(transform.position.x - 0.25f, transform.position.y + 1.6f);
-		GameObject _redBalloon = Instantiate(_redBalloonPrefab, _myPos, Quaternion.identity);
+		Vector2 _myPos = new Vector2(0,0);
+		if(transform.localScale.x > 0)
+		{
+			_myPos = new Vector2(transform.position.x , transform.position.y + 1.6f);
+		}
+		else
+		{
+			_myPos = new Vector2(transform.position.x , transform.position.y + 1.6f);
+		}
+		GameObject _redBalloon = Instantiate(_redBalloonPrefab, _myPos, transform.rotation);
 		_redBalloon.transform.SetParent(transform);
 		_redBalloon.transform.Rotate(0, 180, 0);
 
@@ -738,14 +746,41 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action3End()
 	{
+		Debug.Log("ok");
+		Vector2 _myPos = new Vector2(0,0);
+		if(transform.localScale.x > 0)
+		{
+			_myPos = new Vector2(transform.position.x - 0.5f, transform.position.y - 0.3f );
+		}
+		else
+		{
+			_myPos = new Vector2(transform.position.x + 0.5f, transform.position.y - 0.3f);
+		}
+		GameObject _purpleBalloon = Instantiate(_purpleBalloonPrefab, _myPos, transform.rotation);
+		_purpleBalloon.transform.SetParent(transform);
+
+		// Access the Animator component of the instantiated object
+		Animator balloonAnimator = _purpleBalloon.GetComponent<Animator>();
+		
+		balloonAnimator.SetBool("Idle", false);
+		balloonAnimator.SetBool("Blow", true);
+
 		_BalloonsDictionaryActivation[_lastBalloon] = true;
 		_canMove = true;
 	}
 
 	public void Action4End()
 	{
-		Vector2 _myPos = new Vector2(transform.position.x - 1.5f, transform.position.y - 0.4f);
-		GameObject _blueBalloon = Instantiate(_blueBalloonPrefab, _myPos, Quaternion.identity);
+		Vector2 _myPos = new Vector2(0,0);
+		if(transform.localScale.x > 0)
+		{
+			_myPos = new Vector2(transform.position.x, transform.position.y + 1);
+		}
+		else
+		{
+			_myPos = new Vector2(transform.position.x, transform.position.y + 1);
+		}
+		GameObject _blueBalloon = Instantiate(_blueBalloonPrefab, _myPos, transform.rotation);
 		_blueBalloon.transform.SetParent(transform);
 		_blueBalloon.transform.Rotate(0, 180, 0);
 
