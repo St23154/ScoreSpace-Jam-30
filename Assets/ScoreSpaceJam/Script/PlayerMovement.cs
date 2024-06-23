@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 	public TextMeshProUGUI _blueBalloonText;
 	public TextMeshProUGUI _redBalloonText;
 	public TextMeshProUGUI _purpleBalloonText;
-	public TextMeshProUGUI _greenBalloonText;
+	private TextMeshProUGUI _greenBalloonText;
 	public UnityEngine.UI.Image _redBalloonFill;
 	public UnityEngine.UI.Image _blueBalloonFill;
 	public UnityEngine.UI.Image _purpleBalloonFill;
@@ -138,6 +138,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
+		 // Trouver les composants par leur tag
+        _greenBalloonText = GameObject.FindWithTag("BallonVert").GetComponent<TextMeshProUGUI>();
 	} 
 	public void Check_Balloon(){
 		if(collisionDetector.isFloating){

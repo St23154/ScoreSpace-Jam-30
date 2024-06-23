@@ -12,6 +12,13 @@ TagManager:
   - moveable_object
   - ground
   - Trampoline
+  - BallonRouge
+  - BallonBleu
+  - BallonViolet
+  - BallonRougeFill
+  - BallonBleuFill
+  - BallonVioletFill
+  - BallonVert
   layers:
   - Default
   - TransparentFX
