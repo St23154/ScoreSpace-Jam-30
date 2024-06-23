@@ -84,6 +84,10 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject _redBalloonPrefab;
 	public GameObject _blueBalloonPrefab;
 	public GameObject _purpleBalloonPrefab;
+	private GameObject _redBalloon;
+	private GameObject _purpleBalloon;
+	private GameObject _blueBalloon;
+
 
 	//Animation
 
@@ -371,6 +375,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else
 			{
+				Destroy(_redBalloon);
 				_BalloonsDictionaryActivation["Red"] = false;
 			}
 		}
@@ -390,7 +395,20 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else
 			{
+				Destroy(_purpleBalloon);
 				_BalloonsDictionaryActivation["Purple"] = false;
+			}
+		}
+		else if ( _BalloonsDictionaryActivation["Blue"] == true)
+		{
+			if (_time < 10)
+			{
+				_time += Time.deltaTime;
+			}
+			else
+			{
+				Destroy(_blueBalloon);
+				_BalloonsDictionaryActivation["Blue"] = false;
 			}
 		}
 
@@ -724,13 +742,13 @@ public class PlayerMovement : MonoBehaviour
 		{
 			_myPos = new Vector2(transform.position.x , transform.position.y + 1.6f);
 		}
-		GameObject _redBalloon = Instantiate(_redBalloonPrefab, _myPos, transform.rotation);
+
+		_redBalloon = Instantiate(_redBalloonPrefab, _myPos, transform.rotation);
 		_redBalloon.transform.SetParent(transform);
 		_redBalloon.transform.Rotate(0, 180, 0);
 
 		// Access the Animator component of the instantiated object
 		Animator balloonAnimator = _redBalloon.GetComponent<Animator>();
-		
 		balloonAnimator.SetBool("Idle", false);
 		balloonAnimator.SetTrigger("Apparear");
 
@@ -750,7 +768,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			_myPos = new Vector2(transform.position.x + 0.5f, transform.position.y - 0.3f);
 		}
-		GameObject _purpleBalloon = Instantiate(_purpleBalloonPrefab, _myPos, transform.rotation);
+		_purpleBalloon = Instantiate(_purpleBalloonPrefab, _myPos, transform.rotation);
 		_purpleBalloon.transform.SetParent(transform);
 
 		// Access the Animator component of the instantiated object
@@ -774,7 +792,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			_myPos = new Vector2(transform.position.x, transform.position.y + 1);
 		}
-		GameObject _blueBalloon = Instantiate(_blueBalloonPrefab, _myPos, transform.rotation);
+		_blueBalloon = Instantiate(_blueBalloonPrefab, _myPos, transform.rotation);
 		_blueBalloon.transform.SetParent(transform);
 		_blueBalloon.transform.Rotate(0, 180, 0);
 
