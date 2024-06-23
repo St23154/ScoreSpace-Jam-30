@@ -79,13 +79,13 @@ public class PlayerMovement : MonoBehaviour
 	};
 	public bool ballonVert = false;
 	private bool isOnFloatingSquare = false;
-	public TextMeshProUGUI _blueBalloonText;
-	public TextMeshProUGUI _redBalloonText;
-	public TextMeshProUGUI _purpleBalloonText;
+	private TextMeshProUGUI _blueBalloonText;
+	private TextMeshProUGUI _redBalloonText;
+	private TextMeshProUGUI _purpleBalloonText;
 	private TextMeshProUGUI _greenBalloonText;
-	public UnityEngine.UI.Image _redBalloonFill;
-	public UnityEngine.UI.Image _blueBalloonFill;
-	public UnityEngine.UI.Image _purpleBalloonFill;
+	private UnityEngine.UI.Image _redBalloonFill;
+	private UnityEngine.UI.Image _blueBalloonFill;
+	private UnityEngine.UI.Image _purpleBalloonFill;
 	public GameObject _redBalloonPrefab;
 	public GameObject _blueBalloonPrefab;
 	public GameObject _purpleBalloonPrefab;
@@ -139,7 +139,13 @@ public class PlayerMovement : MonoBehaviour
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
 		 // Trouver les composants par leur tag
+        _redBalloonText = GameObject.FindWithTag("BallonRouge").GetComponent<TextMeshProUGUI>();
+        _blueBalloonText = GameObject.FindWithTag("BallonBleu").GetComponent<TextMeshProUGUI>();
+        _purpleBalloonText = GameObject.FindWithTag("BallonViolet").GetComponent<TextMeshProUGUI>();
         _greenBalloonText = GameObject.FindWithTag("BallonVert").GetComponent<TextMeshProUGUI>();
+        _redBalloonFill = GameObject.FindWithTag("BallonRougeFill").GetComponent<UnityEngine.UI.Image>();
+        _blueBalloonFill = GameObject.FindWithTag("BallonBleuFill").GetComponent<UnityEngine.UI.Image>();
+        _purpleBalloonFill = GameObject.FindWithTag("BallonVioletFill").GetComponent<UnityEngine.UI.Image>();
 	} 
 	public void Check_Balloon(){
 		if(collisionDetector.isFloating){
