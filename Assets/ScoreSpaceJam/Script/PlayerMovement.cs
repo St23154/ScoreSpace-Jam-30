@@ -389,7 +389,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if ( _BalloonsDictionaryActivation["Red"] == true)
 		{
-			if (_time < 8)
+			if (_time < 4)
 			{
 				_time += Time.deltaTime;
 				RB.AddForce(Vector2.up * 1.6f, ForceMode2D.Impulse);
@@ -401,7 +401,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 		else if ( _BalloonsDictionaryActivation["Purple"] == true)
 		{
-			if (_time < 3)
+			if (_time < 2)
 			{
 				_time += Time.deltaTime;
 				if (transform.localScale.x == 0.8f)
