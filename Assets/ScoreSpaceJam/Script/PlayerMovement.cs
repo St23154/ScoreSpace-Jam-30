@@ -371,7 +371,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else
 			{
-				_BalloonsDictionaryActivation["Purple"] = false;
+				_BalloonsDictionaryActivation["Red"] = false;
 			}
 		}
 		else if ( _BalloonsDictionaryActivation["Purple"] == true)
@@ -741,7 +741,6 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action3End()
 	{
-		Debug.Log("ok");
 		Vector2 _myPos = new Vector2(0,0);
 		if(transform.localScale.x > 0)
 		{
