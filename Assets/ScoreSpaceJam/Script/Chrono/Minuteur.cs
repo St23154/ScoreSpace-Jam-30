@@ -40,8 +40,14 @@ public class Minuteur : MonoBehaviour
         _chrono += 1;
         float min = Mathf.FloorToInt(_chrono / 60);
         float sec = Mathf.FloorToInt(_chrono % 60);
-
-        timerText.text = string.Format("well done, your best time : {00} : {1:00}", min, sec);
+        if(_chronoOn)
+        {
+            timerText.text = string.Format("{00} : {1:00}", min, sec);
+        }
+        else
+        {
+            timerText.text = string.Format("well done, your best time : {00} : {1:00}", min, sec);
+        }
     }
 
     public void startTimer()
