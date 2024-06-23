@@ -9,6 +9,6 @@ public class EndChrono : MonoBehaviour
     void Start()
     {
         minuteur = GameObject.FindWithTag("GameManager").GetComponent<Minuteur>();
-        minuteur.startTimer();
+        minuteur.stopTimer();
     }
 }
