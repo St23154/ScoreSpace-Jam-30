@@ -130,10 +130,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   ballonVert: 0
-  _blueBalloonText: {fileID: 0}
-  _redBalloonText: {fileID: 0}
-  _purpleBalloonText: {fileID: 0}
-  _greenBalloonText: {fileID: 0}
   _redBalloonPrefab: {fileID: 3620055598793990662, guid: 54a9e2eb493d46742a0a6b6baab9e9e3, type: 3}
   _blueBalloonPrefab: {fileID: 3620055598793990662, guid: 17617b8b5878ba142b40b55f158e434e, type: 3}
   _purpleBalloonPrefab: {fileID: 3620055598793990662, guid: ae7385f834b83cb47a30ad3a7d7c13c3, type: 3}
@@ -222,7 +218,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a558133506d08914b968aea1f77f2ca5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
