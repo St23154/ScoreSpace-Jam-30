@@ -49,6 +49,7 @@ public class ButtonBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("moveable_object"))
         {
             speed = -0.4f;
+    
         }
     }
 
@@ -57,6 +58,7 @@ public class ButtonBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("moveable_object"))
         {
             speed = 0.4f;
+            
         }
     }
 }
