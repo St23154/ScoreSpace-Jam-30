@@ -157,7 +157,6 @@ public class PlayerMovement : MonoBehaviour
             _BalloonsDictionary["Green"] -= 1;
 			UpdateBalloonsText();
             _rendererAnimator.SetTrigger("Action_1");
-            _canMove = false;
             }
 
 			

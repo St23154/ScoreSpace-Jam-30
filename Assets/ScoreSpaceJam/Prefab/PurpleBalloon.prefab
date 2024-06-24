@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3138344795387622163}
   - component: {fileID: 9000978107965103476}
   - component: {fileID: 4328130761714594483}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PurpleBalloon
   m_TagString: PurpleBalloon
   m_Icon: {fileID: 0}
