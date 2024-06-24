@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class Minuteur : MonoBehaviour
 {
-    public static bool _chronoOn;
+    [SerializeField] private static bool _chronoOn;
     public static float _time;
     public static float _bestTime;
-    public TextMeshProUGUI timerText;
+    private TextMeshProUGUI timerText;
 
     void Awake()
     {
@@ -46,7 +44,7 @@ public class Minuteur : MonoBehaviour
         }
         else
         {
-            timerText.text = string.Format("well done, your best time : {00} : {1:00}", min, sec);
+            timerText.text = string.Format("best time : {00} : {1:00}", min, sec);
         }
     }
 
