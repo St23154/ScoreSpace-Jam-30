@@ -136,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
+		_audioManager.PlaySFX(_audioManager.respawn);
+		_canMove = true;
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
 		 // Trouver les composants par leur tag
@@ -171,13 +173,6 @@ public class PlayerMovement : MonoBehaviour
 
 		LastPressedJumpTime -= Time.deltaTime;
 		LastPressedDashTime -= Time.deltaTime;
-		#endregion
-
-		#region CHECK IF CAN MOVE
-		if (!_canMove)
-		{
-			_moveInput =  new Vector2(0,0);
-		}
 		#endregion
 
 		#region INPUT HANDLER
@@ -292,13 +287,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 		#endregion
 
-		#region SLIDE CHECKS
-		if (CanSlide() && ((LastOnWallLeftTime > 0 && _moveInput.x < 0) || (LastOnWallRightTime > 0 && _moveInput.x > 0)))
-			IsSliding = true;
-		else
-			IsSliding = false;
-		#endregion
-
 		#region GRAVITY
 		if (!_isDashAttacking)
 		{
@@ -353,6 +341,16 @@ public class PlayerMovement : MonoBehaviour
 		{
 			//No gravity when dashing (returns to normal once initial dashAttack phase over)
 			SetGravityScale(0);
+		}
+		#endregion
+		
+		#region CHECK IF CAN MOVE
+		if (!_canMove)
+		{
+			RB.velocity = Vector3.zero;
+			RB.isKinematic = true;
+			_moveInput = Vector2.zero;
+			_rendererAnimator.SetBool("IsWalking", false);
 		}
 		#endregion
 
@@ -664,7 +662,7 @@ public class PlayerMovement : MonoBehaviour
     #region CHECK METHODS
     public void CheckDirectionToFace(bool isMovingRight)
 	{
-		if (isMovingRight != IsFacingRight)
+		if (isMovingRight != IsFacingRight && _canMove)
 			Turn();
 	}
 
@@ -875,7 +873,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Spike"))
         {
-			Debug.Log("spike!");
+			_canMove = false;
+			_audioManager.PlaySFX(_audioManager.deathstinger);
 			_rendererAnimator.SetTrigger("Die");
         }
     }

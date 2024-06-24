@@ -24,6 +24,7 @@ TagManager:
   - startscene
   - endscene
   - AudioManager
+  - Spike
   layers:
   - Default
   - TransparentFX
