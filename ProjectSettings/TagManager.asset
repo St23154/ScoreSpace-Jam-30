@@ -21,6 +21,8 @@ TagManager:
   - BallonVert
   - TimerText
   - GameManager
+  - startscene
+  - endscene
   layers:
   - Default
   - TransparentFX
