@@ -14,6 +14,6 @@ public class EndChrono : MonoBehaviour
         _audioManager.PlaySFX(_audioManager.victory);
         minuteur = GameObject.FindWithTag("GameManager").GetComponent<Minuteur>();
         // minuteur.stopTimer();
-        StartCoroutine(minuteur.stopTimer());
+        minuteur.stopTimer();
     }
 }

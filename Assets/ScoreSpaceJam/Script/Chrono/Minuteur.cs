@@ -1,4 +1,5 @@
 using System.Collections;
+using Dan.Enums;
 using TMPro;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ public class Minuteur : MonoBehaviour
     private static bool _chronoOn;
     public static float _time;
     public static float _bestTime = 999999;
+    public static int tempTime;
     private TextMeshProUGUI timerText;
-    public Leaderboard leaderboard;
 
     void Start()
     {
@@ -47,27 +48,15 @@ public class Minuteur : MonoBehaviour
         _chronoOn = true;
     }
 
-    // public void stopTimer()
-    // {
-    //     _chronoOn = false;
-    //     if (_time < _bestTime)
-    //     {
-    //         _bestTime = _time;
-            
-    //         yield return leaderboard.SubmitScoreRoutine(System.Convert.ToInt32(_bestTime));
-
-    //     }
-    // }
-    public IEnumerator stopTimer()
+    public void stopTimer()
     {
-        Debug.Log("s0s");
         _chronoOn = false;
         if (_time < _bestTime)
         {
             _bestTime = _time;
-            
-            yield return leaderboard.SubmitScoreRoutine(System.Convert.ToInt32(_bestTime));
+            tempTime = System.Convert.ToInt32(_bestTime);
 
         }
     }
+
 }
