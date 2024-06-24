@@ -28767,7 +28767,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5085817680818289918, guid: 3610b1aea727ef24f9f36e383cc16691, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3610b1aea727ef24f9f36e383cc16691, type: 3}
@@ -29305,7 +29306,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.674656
+  orthographic size: 9.200373
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
