@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Dan.Enums;
 using TMPro;
@@ -35,11 +36,15 @@ public class Minuteur : MonoBehaviour
         float sec = Mathf.FloorToInt(chrono % 60);
         if (_chronoOn)
         {
-            timerText.text = string.Format("{0:00}:{1:00}", min, sec);
+            //timerText.text = string.Format("{0:00}:{1:00}", min, sec);
+            timerText.text = string.Format("{0:00}", chrono);
+
         }
         else
         {
-            timerText.text = string.Format("Best Time: {0:00}:{1:00}", min, sec);
+            //timerText.text = string.Format("Best Time: {0:00}:{1:00}", min, sec);
+            timerText.text = string.Format("{0:00}", chrono);
+            
         }
     }
 
@@ -51,6 +56,7 @@ public class Minuteur : MonoBehaviour
     public void stopTimer()
     {
         _chronoOn = false;
+        tempTime = System.Convert.ToInt32(_time);
         if (_time < _bestTime)
         {
             _bestTime = _time;
