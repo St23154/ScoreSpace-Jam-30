@@ -21093,7 +21093,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The green ballon can make the box float, it can also be popped.
+  m_text: The green ballon can make the box float, it can also be popped with the
+    same KEY.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3de9d4db22c6bd641871f1b766df601f, type: 2}
   m_sharedMaterial: {fileID: -1128129163057765214, guid: 3de9d4db22c6bd641871f1b766df601f, type: 2}
@@ -21102,8 +21103,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -21120,8 +21121,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -21223,7 +21224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.84, y: 1.44}
+  m_AnchoredPosition: {x: 1.32, y: 1.11}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1064186529 stripped
