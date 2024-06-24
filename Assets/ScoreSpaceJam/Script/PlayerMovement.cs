@@ -9,10 +9,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -871,6 +870,21 @@ public class PlayerMovement : MonoBehaviour
 	}
 	#endregion
 
+	#region MORT
+	private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Spike"))
+        {
+			Debug.Log("spike!");
+			_rendererAnimator.SetTrigger("Die");
+        }
+    }
+
+	public void ReloadScene()
+	{
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+	}
+	#endregion
 }
 
 // created by Dawnosaur :X
