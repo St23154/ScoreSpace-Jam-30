@@ -91,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
 	private GameObject _purpleBalloon;
 	private GameObject _blueBalloon;
 	AudioManager _audioManager;
+	private bool _hitTheGround = false;
 
 
 	//Animation
@@ -351,8 +352,17 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if(!_audioManager.IsPlaying(_audioManager.footStep))
 			{
-			_audioManager.StopWalk(_audioManager.footStep);
+				_audioManager.StopWalk(_audioManager.footStep);
 			}
+		}
+		if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer) && _hitTheGround == false)
+		{
+			_hitTheGround = true;
+			_audioManager.PlaySFX(_audioManager.ground);
+		}
+		if (!Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer) && _hitTheGround == true)
+		{
+			_hitTheGround = false;
 		}
 
 		#region CHECK IF CAN MOVE

@@ -183,8 +183,9 @@ MonoBehaviour:
   deathstinger: {fileID: 8300000, guid: 8e0fc18571afdb9488b7a279dcb219dc, type: 3}
   respawn: {fileID: 8300000, guid: 9d0b079afeabcaf4680bbae8e8abee63, type: 3}
   victory: {fileID: 8300000, guid: e232eb36303fdad4eaaddd12b8970665, type: 3}
-  footStep: {fileID: 8300000, guid: 27a8bbb6c4cc80a4aa50f80ee2ae30c9, type: 3}
+  footStep: {fileID: 8300000, guid: fd7bde794a35e5c4f97a8f976631ca10, type: 3}
   jump: {fileID: 8300000, guid: b2d7e0d7b397ad14d80478851af97af6, type: 3}
+  ground: {fileID: 8300000, guid: 5ef7711865739b0488928f66a0400b46, type: 3}
 --- !u!1 &5440144427140107214
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +230,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -357,7 +358,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.01
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0

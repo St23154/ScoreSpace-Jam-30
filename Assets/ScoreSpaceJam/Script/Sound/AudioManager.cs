@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip victory;
     public AudioClip footStep;
     public AudioClip jump;
+    public AudioClip ground;
 
     public static AudioManager instance;
     
