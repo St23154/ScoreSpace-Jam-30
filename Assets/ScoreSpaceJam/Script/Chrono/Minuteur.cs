@@ -3,48 +3,40 @@ using UnityEngine;
 
 public class Minuteur : MonoBehaviour
 {
-    [SerializeField] private static bool _chronoOn;
+    private static bool _chronoOn;
     public static float _time;
-    public static float _bestTime;
+    public static float _bestTime = 999999;
     private TextMeshProUGUI timerText;
 
-    void Awake()
-    {
-        _bestTime = 999999;
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         timerText = GameObject.FindWithTag("TimerText").GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(_chronoOn)
+        if (_chronoOn)
         {
             _time += Time.deltaTime;
-            updateChrono(_time);
+            UpdateChrono(_time);
         }
         else
         {
-            updateChrono(_bestTime);
+            UpdateChrono(_bestTime);
         }
     }
 
-    void updateChrono(float _chrono)
+    void UpdateChrono(float chrono)
     {
-        _chrono += 1;
-        float min = Mathf.FloorToInt(_chrono / 60);
-        float sec = Mathf.FloorToInt(_chrono % 60);
-        if(_chronoOn)
+        float min = Mathf.FloorToInt(chrono / 60);
+        float sec = Mathf.FloorToInt(chrono % 60);
+        if (_chronoOn)
         {
-            timerText.text = string.Format("{00} : {1:00}", min, sec);
+            timerText.text = string.Format("{0:00}:{1:00}", min, sec);
         }
         else
         {
-            timerText.text = string.Format("best time : {00} : {1:00}", min, sec);
+            timerText.text = string.Format("Best Time: {0:00}:{1:00}", min, sec);
         }
     }
 
@@ -58,7 +50,7 @@ public class Minuteur : MonoBehaviour
         _chronoOn = false;
         if (_time < _bestTime)
         {
-        _bestTime = _time;
+            _bestTime = _time;
         }
     }
 }
