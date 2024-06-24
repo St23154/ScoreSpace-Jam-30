@@ -91,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
 	private GameObject _redBalloon;
 	private GameObject _purpleBalloon;
 	private GameObject _blueBalloon;
+	private AudioManager _audioManager;
 
 
 	//Animation
@@ -131,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
+		_audioManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<AudioManager>();
 	}
 
 	private void Start()
@@ -742,12 +744,14 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action1End()
 	{
+		_audioManager.PlaySFX(_audioManager.balloon);
 		interactAction.Invoke();
 		_canMove = true;
 	}
 
 	public void Action2End()
 	{
+		_audioManager.PlaySFX(_audioManager.balloon);
 		Vector2 _myPos = new Vector2(0,0);
 		if(transform.localScale.x > 0)
 		{
@@ -774,6 +778,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action3End()
 	{
+		_audioManager.PlaySFX(_audioManager.balloon);
 		Vector2 _myPos = new Vector2(0,0);
 		if(transform.localScale.x > 0)
 		{
@@ -798,6 +803,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action4End()
 	{
+		_audioManager.PlaySFX(_audioManager.balloon);
 		Vector2 _myPos = new Vector2(0,0);
 		if(transform.localScale.x > 0)
 		{

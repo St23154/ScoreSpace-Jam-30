@@ -6,6 +6,7 @@ public class Scene_Controller : MonoBehaviour
     private Animator _startingSceneTransition;
     private Animator _endingSceneTransition;
     public static Scene_Controller instance;
+    
     private void Awake(){
         instance = this;
     }
