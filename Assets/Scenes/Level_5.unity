@@ -2956,17 +2956,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3921893965418630061, guid: 9bb4803cb2122f34b8e75ac6472bbcbc, type: 3}
   m_PrefabInstance: {fileID: 1432576082}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1432576084 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 631084895498468100, guid: 9bb4803cb2122f34b8e75ac6472bbcbc, type: 3}
-  m_PrefabInstance: {fileID: 1432576082}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1438202013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3559,7 +3548,7 @@ PrefabInstance:
     - target: {fileID: 6684916802538025592, guid: 92e15872f2a37bf46935787d6f63a491, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 1432576084}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
