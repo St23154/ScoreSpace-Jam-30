@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class Minuteur : MonoBehaviour
     public static float _time;
     public static float _bestTime = 999999;
     private TextMeshProUGUI timerText;
+    public Leaderboard leaderboard;
 
     void Start()
     {
@@ -45,12 +47,26 @@ public class Minuteur : MonoBehaviour
         _chronoOn = true;
     }
 
-    public void stopTimer()
+    // public void stopTimer()
+    // {
+    //     _chronoOn = false;
+    //     if (_time < _bestTime)
+    //     {
+    //         _bestTime = _time;
+            
+    //         yield return leaderboard.SubmitScoreRoutine(System.Convert.ToInt32(_bestTime));
+
+    //     }
+    // }
+    public IEnumerator stopTimer()
     {
         _chronoOn = false;
         if (_time < _bestTime)
         {
             _bestTime = _time;
+            
+            yield return leaderboard.SubmitScoreRoutine(System.Convert.ToInt32(_bestTime));
+
         }
     }
 }

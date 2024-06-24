@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182cd195a28310e479cddf7ff82822f8, type: 3}
   m_Name: LootLockerConfig
   m_EditorClassIdentifier: 
-  apiKey: 
-  token: 
-  adminToken: 
+  apiKey: dev_dfd952271ebf41c7afbcec25d18f9b78
+  token: fc251174b609855ea3d8bccce55ca999e2f800ac
+  adminToken: 6be18d6adcc049d55c9e8ddf72ccf213bb0f6863
   refreshToken: 
-  domainKey: 
+  domainKey: iyak2xmd
   gameID: 0
   game_version: 1.0.0.0
-  sdk_version: 
-  deviceID: defaultPlayerId
+  sdk_version: 2.2.0
+  deviceID: f3753507-f797-4679-bec8-7d98f710d9f9
   url: https://api.lootlocker.io/v1
-  adminUrl: https://api.lootlocker.io/admin
-  playerUrl: https://api.lootlocker.io/player
-  userUrl: https://api.lootlocker.io/game
-  baseUrl: https://api.lootlocker.io
+  adminUrl: https://iyak2xmd.api.lootlocker.io/admin
+  playerUrl: https://iyak2xmd.api.lootlocker.io/player
+  userUrl: https://iyak2xmd.api.lootlocker.io/game
+  baseUrl: https://iyak2xmd.api.lootlocker.io
   clientSideRequestTimeOut: 180
-  currentDebugLevel: 0
+  currentDebugLevel: 3
   allowTokenRefresh: 1
