@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 179968613482226472}
   - component: {fileID: 6441422943351451610}
   - component: {fileID: 6684916802538025592}
-  - component: {fileID: 1888538668464901286}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: GameManager
@@ -60,25 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec679d4d20b8ec48a59e5a86783f877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1888538668464901286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4084654433844631711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab410e5ba9c9575429a68a4922227942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSource: {fileID: 7520894675076663985}
-  SFXSource: {fileID: 14011540780261806}
-  background: {fileID: 8300000, guid: 6ed3e3b8935338640add564004778aa9, type: 3}
-  balloon: {fileID: 8300000, guid: 59e942bddd59d7040bfb18814e8fdb7a, type: 3}
-  deathstinger: {fileID: 8300000, guid: 8e0fc18571afdb9488b7a279dcb219dc, type: 3}
-  respawn: {fileID: 8300000, guid: 9d0b079afeabcaf4680bbae8e8abee63, type: 3}
-  victory: {fileID: 8300000, guid: e232eb36303fdad4eaaddd12b8970665, type: 3}
 --- !u!1 &6970025565071013739
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +233,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
