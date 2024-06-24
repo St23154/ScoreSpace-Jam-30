@@ -24,6 +24,10 @@ void Start()
         {
             rb.velocity = new Vector2(rb.velocity.x, floatSpeed);
         }
+        else
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -floatSpeed);
+        }
 
     }
 
@@ -34,7 +38,6 @@ void Start()
             Boite.SetActive(true);
         }
        else {
-            Debug.Log("marchennnnnn");
             isFloating = true;
             BoiteBallon.SetActive(true);
             Boite.SetActive(false);
