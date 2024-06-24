@@ -344,6 +344,15 @@ public class PlayerMovement : MonoBehaviour
 		}
 		#endregion
 		
+		if (_moveInput.x != 0 && _canMove && !_audioManager.IsPlaying(_audioManager.footStep))
+		{
+			_audioManager.PlayWalk(_audioManager.footStep);
+		}
+		if (_moveInput.x == 0 || _canMove == false && !_audioManager.IsPlaying(_audioManager.footStep))
+		{
+			_audioManager.StopWalk(_audioManager.footStep);
+		}
+
 		#region CHECK IF CAN MOVE
 		if (!_canMove)
 		{
@@ -540,6 +549,7 @@ public class PlayerMovement : MonoBehaviour
     #region JUMP METHODS
     private void Jump()
 	{
+		_audioManager.PlaySFX(_audioManager.jump);
 		//Ensures we can't call Jump multiple times from one press
 		LastPressedJumpTime = 0;
 		LastOnGroundTime = 0;
