@@ -344,13 +344,16 @@ public class PlayerMovement : MonoBehaviour
 		}
 		#endregion
 		
-		if (_moveInput.x != 0 && _canMove && !_audioManager.IsPlaying(_audioManager.footStep))
+		if (_moveInput.x != 0 && _canMove && !_audioManager.IsPlaying(_audioManager.footStep) && Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
 		{
 			_audioManager.PlayWalk(_audioManager.footStep);
 		}
-		if (_moveInput.x == 0 || _canMove == false && !_audioManager.IsPlaying(_audioManager.footStep))
+		if (_moveInput.x == 0 || _canMove == false || Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
 		{
+			if(!_audioManager.IsPlaying(_audioManager.footStep))
+			{
 			_audioManager.StopWalk(_audioManager.footStep);
+			}
 		}
 
 		#region CHECK IF CAN MOVE
@@ -726,17 +729,14 @@ public class PlayerMovement : MonoBehaviour
 			if (_ballonRef == "Purple")
 			{
 				_rendererAnimator.SetTrigger("Action_3");
-				_canMove = false;
 			}
 			else if (_ballonRef == "Red")
 			{
 				_rendererAnimator.SetTrigger("Action_2");
-				_canMove = false;
 			}
 			else
 			{
 				_rendererAnimator.SetTrigger("Action_4");
-				_canMove = false;
 			}
 			_BalloonsDictionaryActivation[_lastBalloon] = false;
 			_BalloonsDictionary[_ballonRef] -= 1;
@@ -777,7 +777,6 @@ public class PlayerMovement : MonoBehaviour
 		balloonAnimator.SetTrigger("Apparear");
 
 		_BalloonsDictionaryActivation[_lastBalloon] = true;
-		_canMove = true;
 	}
 
 
