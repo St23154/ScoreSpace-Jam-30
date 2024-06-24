@@ -60,6 +60,7 @@ public class Minuteur : MonoBehaviour
     // }
     public IEnumerator stopTimer()
     {
+        Debug.Log("s0s");
         _chronoOn = false;
         if (_time < _bestTime)
         {
