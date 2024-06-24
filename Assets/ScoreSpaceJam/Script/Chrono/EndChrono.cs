@@ -8,7 +8,7 @@ public class EndChrono : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.Play("Victory");
+        // AudioManager.instance.Play("Victory");
         minuteur = GameObject.FindWithTag("GameManager").GetComponent<Minuteur>();
         minuteur.stopTimer();
     }
