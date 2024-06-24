@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 309495178}
   - component: {fileID: 309495177}
   - component: {fileID: 309495176}
+  - component: {fileID: 309495179}
   m_Layer: 3
   m_Name: Tilemap
   m_TagString: ground
@@ -1879,6 +1880,33 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &309495179
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309495174}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &538566387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2133,6 +2161,10 @@ PrefabInstance:
     - target: {fileID: 2543297706001449407, guid: 3610b1aea727ef24f9f36e383cc16691, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814228554805618728, guid: 3610b1aea727ef24f9f36e383cc16691, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4759516656394039599, guid: 3610b1aea727ef24f9f36e383cc16691, type: 3}
       propertyPath: _redBalloonFill
