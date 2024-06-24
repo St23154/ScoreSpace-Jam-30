@@ -9,10 +9,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -137,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
+		_audioManager.PlaySFX(_audioManager.respawn);
+		_canMove = true;
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
 		 // Trouver les composants par leur tag
@@ -172,13 +173,6 @@ public class PlayerMovement : MonoBehaviour
 
 		LastPressedJumpTime -= Time.deltaTime;
 		LastPressedDashTime -= Time.deltaTime;
-		#endregion
-
-		#region CHECK IF CAN MOVE
-		if (!_canMove)
-		{
-			_moveInput =  new Vector2(0,0);
-		}
 		#endregion
 
 		#region INPUT HANDLER
@@ -293,13 +287,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 		#endregion
 
-		#region SLIDE CHECKS
-		if (CanSlide() && ((LastOnWallLeftTime > 0 && _moveInput.x < 0) || (LastOnWallRightTime > 0 && _moveInput.x > 0)))
-			IsSliding = true;
-		else
-			IsSliding = false;
-		#endregion
-
 		#region GRAVITY
 		if (!_isDashAttacking)
 		{
@@ -354,6 +341,25 @@ public class PlayerMovement : MonoBehaviour
 		{
 			//No gravity when dashing (returns to normal once initial dashAttack phase over)
 			SetGravityScale(0);
+		}
+		#endregion
+		
+		if (_moveInput.x != 0 && _canMove && !_audioManager.IsPlaying(_audioManager.footStep))
+		{
+			_audioManager.PlayWalk(_audioManager.footStep);
+		}
+		if (_moveInput.x == 0 || _canMove == false && !_audioManager.IsPlaying(_audioManager.footStep))
+		{
+			_audioManager.StopWalk(_audioManager.footStep);
+		}
+
+		#region CHECK IF CAN MOVE
+		if (!_canMove)
+		{
+			RB.velocity = Vector3.zero;
+			RB.isKinematic = true;
+			_moveInput = Vector2.zero;
+			_rendererAnimator.SetBool("IsWalking", false);
 		}
 		#endregion
 
@@ -543,6 +549,7 @@ public class PlayerMovement : MonoBehaviour
     #region JUMP METHODS
     private void Jump()
 	{
+		_audioManager.PlaySFX(_audioManager.jump);
 		//Ensures we can't call Jump multiple times from one press
 		LastPressedJumpTime = 0;
 		LastOnGroundTime = 0;
@@ -665,7 +672,7 @@ public class PlayerMovement : MonoBehaviour
     #region CHECK METHODS
     public void CheckDirectionToFace(bool isMovingRight)
 	{
-		if (isMovingRight != IsFacingRight)
+		if (isMovingRight != IsFacingRight && _canMove)
 			Turn();
 	}
 
@@ -871,6 +878,22 @@ public class PlayerMovement : MonoBehaviour
 	}
 	#endregion
 
+	#region MORT
+	private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Spike"))
+        {
+			_canMove = false;
+			_audioManager.PlaySFX(_audioManager.deathstinger);
+			_rendererAnimator.SetTrigger("Die");
+        }
+    }
+
+	public void ReloadScene()
+	{
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+	}
+	#endregion
 }
 
 // created by Dawnosaur :X
