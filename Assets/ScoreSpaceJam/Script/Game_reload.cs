@@ -17,7 +17,7 @@ public class Game_reload : MonoBehaviour
     }
 
    void Update(){
-        if(Input.GetKeyUp(KeyCode.R)){
+        if(Input.GetKeyUp(KeyCode.F2)){
             SceneManager.LoadSceneAsync(0);
         }
     }
