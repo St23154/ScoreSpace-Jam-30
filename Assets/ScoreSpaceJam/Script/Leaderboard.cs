@@ -19,7 +19,7 @@ private void Start(){
         //Debug.Log("rsfrdfv");
         LeaderboardCreator.GetLeaderboard(publicLeaderboardKey, ((msg)=>{
             int loopLength = (msg.Length < names.Count) ? msg.Length : names.Count;
-            for (int i = 0; i < loopLength; i++){
+            for (int i = 0; i < loopLength; ++i){
                 names[i].text = msg[i].Username;
                 scores[i].text = msg[i].Score.ToString();
             }
