@@ -9,4 +9,13 @@ public class Game_Starter : MonoBehaviour
 public void PlayGame(){
     SceneManager.LoadSceneAsync("Level_0");
 }
+
+
+public void Credits(){
+    SceneManager.LoadSceneAsync("Credits");
+}
+
+public void Back(){
+    SceneManager.LoadSceneAsync("Menu");
+}
 }
