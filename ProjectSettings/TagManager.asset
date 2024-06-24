@@ -23,6 +23,7 @@ TagManager:
   - GameManager
   - startscene
   - endscene
+  - AudioManager
   layers:
   - Default
   - TransparentFX

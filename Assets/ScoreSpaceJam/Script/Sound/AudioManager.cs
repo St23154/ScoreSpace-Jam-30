@@ -13,7 +13,22 @@ public class AudioManager : MonoBehaviour
     public AudioClip deathstinger;
     public AudioClip respawn;
     public AudioClip victory;
+
+    public static AudioManager instance;
     
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         musicSource.clip = background;
