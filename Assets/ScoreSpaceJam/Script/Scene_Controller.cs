@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,13 +7,7 @@ public class Scene_Controller : MonoBehaviour
     private Animator _endingSceneTransition;
     public static Scene_Controller instance;
     private void Awake(){
-        if(instance==null){
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else{
-            Destroy(gameObject);
-        }
+        instance = this;
     }
 
     private void Start()
