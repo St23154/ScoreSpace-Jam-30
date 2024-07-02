@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 	private int _Balloon = 0;
 	private string _lastBalloon = "red";
 	private float _time;
-	private Dictionary<string, int> _BalloonsDictionary = new Dictionary<string, int>
+	public Dictionary<string, int> _BalloonsDictionary = new Dictionary<string, int>
 	{
 		{ "Red", 0 },
 		{ "Blue", 0 },
