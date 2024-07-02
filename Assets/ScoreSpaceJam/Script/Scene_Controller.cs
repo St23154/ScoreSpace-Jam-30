@@ -20,7 +20,7 @@ public class Scene_Controller : MonoBehaviour
 
 
    void Update(){
-        if(Input.GetKeyUp(KeyCode.F2)){
+        if(Input.GetKeyUp(KeyCode.Tab)){
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
     }

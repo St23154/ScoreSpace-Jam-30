@@ -494,7 +494,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2665913385290156483, guid: 9bb4803cb2122f34b8e75ac6472bbcbc, type: 3}
       propertyPath: m_text
-      value: f8
+      value: Tab
       objectReference: {fileID: 0}
     - target: {fileID: 2951805825091224243, guid: 9bb4803cb2122f34b8e75ac6472bbcbc, type: 3}
       propertyPath: m_text
@@ -579,6 +579,14 @@ PrefabInstance:
     - target: {fileID: 3921893965418630061, guid: 9bb4803cb2122f34b8e75ac6472bbcbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399735989941517752, guid: 9bb4803cb2122f34b8e75ac6472bbcbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 132
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399735989941517752, guid: 9bb4803cb2122f34b8e75ac6472bbcbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8796892041415207409, guid: 9bb4803cb2122f34b8e75ac6472bbcbc, type: 3}
       propertyPath: m_Name
