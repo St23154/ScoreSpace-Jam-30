@@ -5,30 +5,29 @@ using UnityEngine.Events;
 
 public class Interact : MonoBehaviour
 {
-    public bool isInRange;
+    private bool isInRange;
     public KeyCode InteractKey;
-    public bool isInteracting = false;
-    public UnityEvent interactAction;
+    private bool isInteracting = false;
+    private PlayerMovement _playerCode;
+    private CollisionDetector _parentScript;
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("lance tou");
         isInRange = false;
-        Debug.Log(isInRange);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(isInRange){
-            if (Input.GetKeyDown(InteractKey))
+        if (Input.GetKeyDown(InteractKey))
         {
             if (!isInteracting)
             {
                 isInteracting = true;
-                Debug.Log("Interact key pressed.");
-                // Perform your interact action here
-                interactAction.Invoke();
+                _parentScript = transform.parent.GetComponent<CollisionDetector>();
+                _playerCode.Check_Balloon(_parentScript);
             }
         }
         else if (Input.GetKeyUp(InteractKey))
@@ -41,7 +40,7 @@ public class Interact : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Player")){
             isInRange = true;
-            Debug.Log("dedans");
+            _playerCode = collision.gameObject.GetComponent<PlayerMovement>();
         }
     }
 
@@ -50,7 +49,6 @@ public class Interact : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Player")){
             isInRange = false;
-            Debug.Log("dehors");
         }
     }
 }

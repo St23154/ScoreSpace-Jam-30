@@ -25,6 +25,7 @@ TagManager:
   - endscene
   - AudioManager
   - Spike
+  - Box
   layers:
   - Default
   - TransparentFX

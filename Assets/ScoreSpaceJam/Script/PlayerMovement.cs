@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerData Data;
-	public UnityEvent interactAction;
 
 	#region COMPONENTS
     public Rigidbody2D RB { get; private set; }
@@ -106,6 +105,10 @@ public class PlayerMovement : MonoBehaviour
 	public float LastPressedDashTime { get; private set; }
 	#endregion
 
+	//Box collide
+
+	private CollisionDetector _boxCode = null;
+
 	#region CHECK PARAMETERS
 	//Set all of these up in the inspector
 	[Header("Checks")] 
@@ -124,8 +127,6 @@ public class PlayerMovement : MonoBehaviour
 	#endregion
 
 	private bool isPlayerOnTop = false;
-	[SerializeField] Interact interact;
-	[SerializeField] CollisionDetector collisionDetector;
 
     
 
@@ -150,11 +151,12 @@ public class PlayerMovement : MonoBehaviour
         _blueBalloonFill = GameObject.FindWithTag("BallonBleuFill").GetComponent<UnityEngine.UI.Image>();
         _purpleBalloonFill = GameObject.FindWithTag("BallonVioletFill").GetComponent<UnityEngine.UI.Image>();
 	} 
-	public void Check_Balloon(){
-		if(collisionDetector.isFloating){
-            interactAction.Invoke();
+	public void Check_Balloon(CollisionDetector _interactorCode){
+		if(_interactorCode.isFloating){
+			_interactorCode.IsFloating();
         }
         else if (_BalloonsDictionary["Green"] > 0){
+			_boxCode = _interactorCode;
             _BalloonsDictionary["Green"] -= 1;
 			UpdateBalloonsText();
             _rendererAnimator.SetTrigger("Action_1");
@@ -760,7 +762,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Action1End()
 	{
-		interactAction.Invoke();
+		_boxCode.IsFloating();
 		_canMove = true;
 	}
 
